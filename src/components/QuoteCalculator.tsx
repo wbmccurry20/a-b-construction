@@ -20,13 +20,15 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
     timeline: '',
     budget: '',
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const projectTypes = [
-    { value: 'new-build', label: '🏗️ New Home Construction', base: 250 },
-    { value: 'renovation', label: '🔨 Full Renovation', base: 150 },
-    { value: 'addition', label: '📐 Home Addition', base: 200 },
-    { value: 'outdoor', label: '🌳 Outdoor Living Space', base: 100 },
-    { value: 'green', label: '♻️ Green Building Project', base: 300 },
+    { value: 'kitchen', label: '🍳 Kitchen Remodel', base: 200 },
+    { value: 'bathroom', label: '🚿 Bathroom Remodel', base: 250 },
+    { value: 'addition', label: '📐 Room Addition', base: 175 },
+    { value: 'deck', label: '🌲 Deck/Patio', base: 50 },
+    { value: 'renovation', label: '🔨 Full Home Renovation', base: 125 },
   ];
 
   const calculateEstimate = () => {
@@ -44,38 +46,68 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
     };
   };
 
+  const submitToWeb3Forms = async () => {
+    setSubmitting(true);
+    const selectedType = projectTypes.find(t => t.value === details.projectType);
+    const estimate = calculateEstimate();
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: `Quote Calculator Estimate - ${selectedType?.label}`,
+          project_type: selectedType?.label,
+          square_footage: details.squareFootage,
+          timeline: details.timeline,
+          budget: details.budget,
+          estimated_cost: estimate?.avg,
+          estimated_range: `$${estimate?.low} - $${estimate?.high}`,
+        }),
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   const estimate = calculateEstimate();
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto">
-      <h3 className="text-3xl font-display font-bold text-construction-dark mb-2">
+    <div className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700">
+      <h3 className="text-3xl font-display font-bold text-white mb-2">
         Project Cost Calculator
       </h3>
-      <p className="text-construction-steel mb-8">
+      <p className="text-gray-100 font-medium mb-8">
         Get an instant estimate for your construction project
       </p>
 
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between mb-2">
-          {[1, 2, 3, 4].map((s) => (
+          {[1, 2, 3, 4, 5].map((s) => (
             <div
               key={s}
-              className={`flex items-center justify-center w-10 h-10 rounded-full font-semibold transition-all ${
+              className={`flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all ${
                 step >= s
-                  ? 'bg-construction-primary text-white'
-                  : 'bg-gray-200 text-gray-400'
+                  ? 'bg-construction-primary text-white shadow-lg'
+                  : 'bg-gray-700 text-gray-400'
               }`}
             >
               {s}
             </div>
           ))}
         </div>
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-gradient-to-r from-construction-primary to-construction-accent"
             initial={{ width: '0%' }}
-            animate={{ width: `${(step / 4) * 100}%` }}
+            animate={{ width: `${(step / 5) * 100}%` }}
             transition={{ duration: 0.3 }}
           />
         </div>
@@ -88,7 +120,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           animate={{ opacity: 1, x: 0 }}
           className="space-y-3"
         >
-          <label className="block text-sm font-semibold text-construction-dark mb-3">
+          <label className="block text-sm font-bold text-white mb-3">
             What type of project are you planning?
           </label>
           {projectTypes.map((type) => (
@@ -98,12 +130,12 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
                 setDetails({ ...details, projectType: type.value });
                 setStep(2);
               }}
-              className="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-construction-primary hover:bg-construction-primary/5 transition-all group"
+              className="w-full p-4 text-left border-2 border-gray-600 rounded-lg hover:border-construction-primary hover:bg-construction-primary/10 transition-all group"
             >
-              <span className="text-lg font-medium group-hover:text-construction-primary">
+              <span className="text-lg font-medium group-hover:text-construction-primary text-white">
                 {type.label}
               </span>
-              <span className="block text-sm text-construction-steel mt-1">
+              <span className="block text-sm text-gray-300 font-semibold mt-1">
                 Starting at ${type.base}/sq ft
               </span>
             </button>
@@ -117,7 +149,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <label className="block text-sm font-semibold text-construction-dark mb-3">
+          <label className="block text-sm font-bold text-white mb-3">
             Approximate square footage?
           </label>
           <input
@@ -127,19 +159,19 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
               setDetails({ ...details, squareFootage: e.target.value })
             }
             placeholder="e.g., 2000"
-            className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none text-lg"
+            className="w-full p-4 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary text-lg font-medium shadow-md"
           />
           <div className="flex gap-3 mt-6">
             <button
               onClick={() => setStep(1)}
-              className="flex-1 px-6 py-3 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold hover:bg-construction-primary/5"
+              className="flex-1 px-6 py-3 border-2 border-gray-500 text-white rounded-lg font-semibold hover:border-construction-primary hover:bg-construction-primary/10"
             >
               Back
             </button>
             <button
               onClick={() => details.squareFootage && setStep(3)}
               disabled={!details.squareFootage}
-              className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent disabled:opacity-50 disabled:cursor-not-allowed shadow-xl"
             >
               Next
             </button>
@@ -153,7 +185,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <label className="block text-sm font-semibold text-construction-dark mb-3">
+          <label className="block text-sm font-bold text-white mb-3">
             When would you like to start?
           </label>
           <div className="space-y-3">
@@ -165,34 +197,91 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
             ].map((option) => (
               <button
                 key={option.value}
-                onClick={() => {
-                  setDetails({ ...details, timeline: option.value });
-                  setStep(4);
-                }}
-                className="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-construction-primary hover:bg-construction-primary/5 transition-all"
+                onClick={() => setDetails({ ...details, timeline: option.value })}
+                className={`w-full p-4 text-left border-2 rounded-lg transition-all text-white ${
+                  details.timeline === option.value
+                    ? 'border-construction-primary bg-construction-primary/10'
+                    : 'border-gray-600 hover:border-construction-primary hover:bg-construction-primary/10'
+                }`}
               >
                 {option.label}
               </button>
             ))}
           </div>
-          <button
-            onClick={() => setStep(2)}
-            className="w-full mt-6 px-6 py-3 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold hover:bg-construction-primary/5"
-          >
-            Back
-          </button>
+          <div className="flex gap-3 mt-6">
+            <button
+              onClick={() => setStep(2)}
+              className="flex-1 px-6 py-3 border-2 border-gray-500 text-white rounded-lg font-semibold hover:border-construction-primary hover:bg-construction-primary/10"
+            >
+              Back
+            </button>
+            <button
+              onClick={() => details.timeline && setStep(4)}
+              disabled={!details.timeline}
+              className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent disabled:opacity-50 disabled:cursor-not-allowed shadow-xl"
+            >
+              Next
+            </button>
+          </div>
         </motion.div>
       )}
 
-      {/* Step 4: Results */}
-      {step === 4 && estimate && (
+      {/* Step 4: Budget */}
+      {step === 4 && (
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <label className="block text-sm font-bold text-white mb-3">
+            What's your approximate budget?
+          </label>
+          <div className="space-y-3">
+            {[
+              { value: '<25k', label: 'Under $25,000' },
+              { value: '25k-50k', label: '$25,000 - $50,000' },
+              { value: '50k-100k', label: '$50,000 - $100,000' },
+              { value: '100k+', label: 'Over $100,000' },
+            ].map((option) => (
+              <button
+                key={option.value}
+                onClick={() => setDetails({ ...details, budget: option.value })}
+                className={`w-full p-4 text-left border-2 rounded-lg transition-all text-white ${
+                  details.budget === option.value
+                    ? 'border-construction-primary bg-construction-primary/10'
+                    : 'border-gray-600 hover:border-construction-primary hover:bg-construction-primary/10'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex gap-3 mt-6">
+            <button
+              onClick={() => setStep(3)}
+              className="flex-1 px-6 py-3 border-2 border-gray-500 text-white rounded-lg font-semibold hover:border-construction-primary hover:bg-construction-primary/10"
+            >
+              Back
+            </button>
+            <button
+              onClick={() => details.budget && setStep(5)}
+              disabled={!details.budget}
+              className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent disabled:opacity-50 disabled:cursor-not-allowed shadow-xl"
+            >
+              See Estimate
+            </button>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Step 5: Results */}
+      {step === 5 && estimate && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center"
         >
           <div className="mb-6">
-            <div className="inline-block p-4 bg-construction-primary/10 rounded-full mb-4">
+            <div className="inline-block p-4 bg-construction-primary/10 rounded-full mb-4 border-2 border-construction-primary/50">
               <svg
                 className="w-12 h-12 text-construction-primary"
                 fill="none"
@@ -207,10 +296,10 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
                 />
               </svg>
             </div>
-            <h4 className="text-2xl font-bold text-construction-dark mb-2">
+            <h4 className="text-2xl font-bold text-white mb-2">
               Your Estimated Project Cost
             </h4>
-            <p className="text-construction-steel">
+            <p className="text-gray-100 font-medium">
               Based on {details.squareFootage} sq ft
             </p>
           </div>
@@ -222,24 +311,49 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
             </div>
           </div>
 
-          <p className="text-sm text-construction-steel mb-6">
-            This is a rough estimate. Contact us for a detailed quote based on
-            your specific requirements.
-          </p>
+          {submitted ? (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-green-900/30 border-2 border-green-500 rounded-lg p-4 mb-6"
+            >
+              <p className="text-green-200 font-semibold">
+                ✓ We've received your estimate request and will contact you soon!
+              </p>
+            </motion.div>
+          ) : (
+            <p className="text-sm text-gray-100 font-medium mb-6">
+              This is a rough estimate. Want a detailed quote? Submit this estimate and we'll contact you.
+            </p>
+          )}
 
           <div className="flex gap-3">
             <button
-              onClick={() => setStep(1)}
-              className="flex-1 px-6 py-3 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold hover:bg-construction-primary/5"
+              onClick={() => {
+                setStep(1);
+                setSubmitted(false);
+                setDetails({ projectType: '', squareFootage: '', timeline: '', budget: '' });
+              }}
+              className="flex-1 px-6 py-3 border-2 border-gray-500 text-white rounded-lg font-semibold hover:border-construction-primary hover:bg-construction-primary/10"
             >
               Start Over
             </button>
-            <a
-              href="/contact"
-              className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90"
-            >
-              Get Detailed Quote
-            </a>
+            {!submitted ? (
+              <button
+                onClick={() => submitToWeb3Forms()}
+                disabled={submitting}
+                className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent disabled:opacity-50 shadow-xl"
+              >
+                {submitting ? 'Sending...' : 'Submit Estimate'}
+              </button>
+            ) : (
+              <a
+                href="/contact"
+                className="flex-1 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent shadow-xl text-center"
+              >
+                Get Detailed Quote
+              </a>
+            )}
           </div>
         </motion.div>
       )}

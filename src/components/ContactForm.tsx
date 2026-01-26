@@ -18,14 +18,13 @@ export default function ContactForm() {
     setStatus('loading');
 
     try {
-      // Using Web3Forms - get your access key from https://web3forms.com
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with actual key
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY,
           subject: `New Quote Request from ${formData.name}`,
           from_name: formData.name,
           ...formData,
@@ -63,22 +62,22 @@ export default function ContactForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12"
+        className="text-center py-12 bg-gray-900 p-8 rounded-2xl shadow-2xl border-2 border-gray-700"
       >
-        <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
-          <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="inline-block p-4 bg-construction-primary/20 rounded-full mb-4 border-2 border-construction-primary shadow-lg">
+          <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-construction-dark mb-2">
+        <h3 className="text-2xl font-bold text-white mb-2">
           Thank You!
         </h3>
-        <p className="text-construction-steel mb-6">
+        <p className="text-gray-100 font-medium mb-6">
           We've received your message and will get back to you within 24 hours.
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="px-6 py-2 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold hover:bg-construction-primary hover:text-white transition-all"
+          className="px-6 py-3 bg-construction-primary text-white rounded-lg font-bold hover:bg-construction-accent transition-all shadow-xl"
         >
           Send Another Message
         </button>
@@ -87,10 +86,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 bg-gray-900 p-8 rounded-2xl shadow-2xl border-2 border-gray-700">
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-construction-dark mb-2">
+        <label htmlFor="name" className="block text-sm font-bold text-white mb-2">
           Full Name *
         </label>
         <input
@@ -100,7 +99,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
+          className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
           placeholder="John Smith"
         />
       </div>
@@ -108,7 +107,7 @@ export default function ContactForm() {
       {/* Email & Phone */}
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-construction-dark mb-2">
+          <label htmlFor="email" className="block text-sm font-bold text-white mb-2">
             Email *
           </label>
           <input
@@ -118,12 +117,12 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
+            className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
             placeholder="john@example.com"
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-construction-dark mb-2">
+          <label htmlFor="phone" className="block text-sm font-bold text-white mb-2">
             Phone
           </label>
           <input
@@ -132,15 +131,15 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
-            placeholder="(828) 555-0123"
+            className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
+            placeholder="(828) 335-2845"
           />
         </div>
       </div>
 
       {/* Project Type */}
       <div>
-        <label htmlFor="projectType" className="block text-sm font-semibold text-construction-dark mb-2">
+        <label htmlFor="projectType" className="block text-sm font-bold text-white mb-2">
           Project Type *
         </label>
         <select
@@ -149,7 +148,7 @@ export default function ContactForm() {
           value={formData.projectType}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
+          className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
         >
           <option value="">Select a project type</option>
           <option value="new-construction">New Home Construction</option>
@@ -165,7 +164,7 @@ export default function ContactForm() {
       {/* Timeline & Budget */}
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="timeline" className="block text-sm font-semibold text-construction-dark mb-2">
+          <label htmlFor="timeline" className="block text-sm font-bold text-white mb-2">
             Timeline
           </label>
           <select
@@ -173,7 +172,7 @@ export default function ContactForm() {
             name="timeline"
             value={formData.timeline}
             onChange={handleChange}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
+            className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
           >
             <option value="">When to start?</option>
             <option value="asap">As soon as possible</option>
@@ -184,7 +183,7 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="budget" className="block text-sm font-semibold text-construction-dark mb-2">
+          <label htmlFor="budget" className="block text-sm font-bold text-white mb-2">
             Budget Range
           </label>
           <select
@@ -192,7 +191,7 @@ export default function ContactForm() {
             name="budget"
             value={formData.budget}
             onChange={handleChange}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors"
+            className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
           >
             <option value="">Select budget range</option>
             <option value="under-50k">Under $50,000</option>
@@ -206,7 +205,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-construction-dark mb-2">
+        <label htmlFor="message" className="block text-sm font-bold text-white mb-2">
           Project Details *
         </label>
         <textarea
@@ -216,7 +215,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-construction-primary focus:outline-none transition-colors resize-none"
+          className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md resize-none"
           placeholder="Tell us about your project, location, any specific requirements..."
         />
       </div>
@@ -224,7 +223,7 @@ export default function ContactForm() {
       {/* Error Message */}
       {status === 'error' && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-          Something went wrong. Please try again or call us at (828) 555-0123.
+          Something went wrong. Please try again or call us at (828) 335-2845.
         </div>
       )}
 
@@ -232,7 +231,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full px-8 py-4 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+        className="w-full px-8 py-4 bg-construction-primary text-white rounded-lg font-bold text-lg hover:bg-construction-accent hover:scale-105 transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
       >
         {status === 'loading' ? (
           <span className="flex items-center justify-center">
@@ -247,7 +246,7 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-xs text-center text-construction-steel">
+      <p className="text-xs text-center text-gray-300 font-medium">
         By submitting this form, you agree to be contacted by A&B Construction regarding your project.
       </p>
     </form>

@@ -23,7 +23,6 @@ export default function Navbar({ client }: NavbarProps) {
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -45,38 +44,67 @@ export default function Navbar({ client }: NavbarProps) {
               <span className="text-white font-bold text-xl">A&B</span>
             </div>
             <div className="hidden sm:block">
-              <div className="font-display font-bold text-xl text-construction-dark">
+              <div className={`font-display font-bold text-xl transition-colors ${
+                isScrolled ? 'text-construction-dark' : 'text-white'
+              }`}>
                 A&B Construction
               </div>
-              <div className="text-xs text-construction-steel">
+              <div className={`text-xs transition-colors ${
+                isScrolled ? 'text-construction-steel' : 'text-gray-300'
+              }`}>
                 Building the Future
               </div>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 rounded-lg text-construction-dark hover:text-construction-primary hover:bg-construction-primary/10 transition-all font-medium"
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  isScrolled
+                    ? 'text-construction-dark hover:text-construction-primary hover:bg-construction-primary/10'
+                    : 'text-white hover:bg-white/10'
+                }`}
               >
                 {link.name}
               </a>
             ))}
+            
+            {/* Phone CTA */}
+            <a
+              href="tel:+18283352845"
+              className={`ml-2 px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                isScrolled
+                  ? 'text-construction-primary hover:bg-construction-primary/10'
+                  : 'text-white hover:bg-white/10'
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (828) 335-2845
+            </a>
+
+            {/* Get Quote Button */}
             <a
               href="/contact"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
+              className="ml-2 px-6 py-2.5 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
             >
-              Get Quote
+              Get Free Quote
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-construction-primary/10 transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? 'hover:bg-construction-primary/10 text-construction-dark'
+                : 'hover:bg-white/10 text-white'
+            }`}
             aria-label="Toggle menu"
           >
             <svg
@@ -110,7 +138,7 @@ export default function Navbar({ client }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden py-4 bg-white border-t"
+            className="lg:hidden py-4 bg-white border-t"
           >
             {navLinks.map((link) => (
               <a
@@ -121,11 +149,24 @@ export default function Navbar({ client }: NavbarProps) {
                 {link.name}
               </a>
             ))}
+            
+            {/* Mobile Phone */}
+            <a
+              href="tel:+18283352845"
+              className="block px-4 py-3 text-construction-primary font-semibold flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (828) 335-2845
+            </a>
+
+            {/* Mobile Get Quote */}
             <a
               href="/contact"
               className="block mx-4 mt-4 px-6 py-3 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold text-center"
             >
-              Get Quote
+              Get Free Quote
             </a>
           </motion.div>
         )}

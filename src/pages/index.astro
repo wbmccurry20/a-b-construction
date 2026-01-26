@@ -5,6 +5,8 @@ import FadeInSection from '../components/FadeInSection';
 import ProjectShowcase from '../components/ProjectShowcase';
 import QuoteCalculator from '../components/QuoteCalculator';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import QuickContact from '../components/QuickContact';
+import TrustBadges from '../components/TrustBadges';
 import Footer from '../components/Footer';
 
 const pageTitle = "A&B Construction - Modern Home Building in Western NC";
@@ -26,15 +28,14 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<div class="animate-fade-in">
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight">
-					Building the
+					Building
 					<span class="block text-construction-primary mt-2">
-						Future
+						Dreams
 					</span>
-					One Home at a Time
+					in Western NC
 				</h1>
 				<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-					Modern, sustainable residential construction in the mountains of Western North Carolina.
-					Where innovation meets craftsmanship.
+					Custom homes built with craftsmanship and care
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<a
@@ -53,12 +54,11 @@ const pageDescription = "Award-winning residential construction and renovation i
 			</div>
 
 			<!-- Stats -->
-			<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+			<div class="mt-16 grid grid-cols-3 gap-8">
 				{[
-					{ number: '20+', label: 'Years Experience' },
-					{ number: '500+', label: 'Projects Completed' },
-					{ number: '98%', label: 'Client Satisfaction' },
-					{ number: '100%', label: 'Licensed & Insured' },
+					{ number: '20+', label: 'Years' },
+					{ number: '500+', label: 'Projects' },
+					{ number: '98%', label: 'Satisfied' },
 				].map((stat) => (
 					<div class="text-center">
 						<div class="text-4xl md:text-5xl font-bold text-construction-accent mb-2">
@@ -83,16 +83,11 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-16">
-					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
-						Why Choose Us
-					</div>
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Modern Building Meets Traditional Craft
+						Why A&B Construction
 					</h2>
 					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
-						We're not your typical construction company. We blend traditional craftsmanship
-						with modern technology to deliver exceptional results.
+						Modern building techniques meet traditional craftsmanship
 					</p>
 				</div>
 			</FadeInSection>
@@ -101,33 +96,18 @@ const pageDescription = "Award-winning residential construction and renovation i
 				{[
 					{
 						icon: '🏗️',
-						title: 'Modern Building Techniques',
-						description: 'We use cutting-edge construction technology including 3D modeling, drone surveys, and smart home integration.',
+						title: 'Modern Technology',
+						description: '3D modeling, drone surveys, and smart integration',
 					},
 					{
 						icon: '♻️',
-						title: 'Sustainable Practices',
-						description: 'Energy-efficient designs, eco-friendly materials, and LEED certification support for a greener future.',
-					},
-					{
-						icon: '📱',
-						title: 'Digital Project Management',
-						description: 'Real-time updates, online portal access, and transparent communication throughout your project.',
+						title: 'Sustainable Building',
+						description: 'Eco-friendly materials and LEED certification',
 					},
 					{
 						icon: '💎',
-						title: 'Premium Craftsmanship',
-						description: 'Our master builders have decades of experience creating homes that stand the test of time.',
-					},
-					{
-						icon: '🛡️',
-						title: 'Comprehensive Warranty',
-						description: 'Industry-leading warranties and support that protect your investment for years to come.',
-					},
-					{
-						icon: '⚡',
-						title: 'Smart Home Ready',
-						description: 'Future-proof your home with integrated smart systems, EV charging, and renewable energy options.',
+						title: 'Expert Craftsmanship',
+						description: 'Decades of experience building quality homes',
 					},
 				].map((feature, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -154,11 +134,8 @@ const pageDescription = "Award-winning residential construction and renovation i
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
 					<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-						Transformations That Inspire
+						Our Transformations
 					</h2>
-					<p class="text-xl text-gray-300">
-						See the dramatic difference our expertise makes
-					</p>
 				</div>
 			</FadeInSection>
 
@@ -191,15 +168,9 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
-						Our Work
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Featured Projects
+						Our Work
 					</h2>
-					<p class="text-xl text-gray-700">
-						Explore our recent work across Western North Carolina
-					</p>
 				</div>
 			</FadeInSection>
 
@@ -210,25 +181,41 @@ const pageDescription = "Award-winning residential construction and renovation i
 	</section>
 
 	<!-- Interactive Cost Calculator -->
-	<section class="py-20 bg-white">
+	<section class="py-20 bg-gradient-to-br from-construction-light to-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-dark font-semibold rounded-full mb-4">
-						Get Instant Estimate
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Plan Your Project
+						Get an Estimate
 					</h2>
-					<p class="text-xl text-gray-700">
-						Get an instant estimate and start planning your dream home
+					<p class="text-xl text-gray-700 max-w-2xl mx-auto">
+						Use our calculator or contact us directly for a free quote
 					</p>
 				</div>
 			</FadeInSection>
 
-			<FadeInSection client:load delay={0.2}>
-				<QuoteCalculator client:load />
+			<!-- Trust Badges at Top -->
+			<FadeInSection client:load delay={0.1}>
+				<div class="mb-12">
+					<TrustBadges />
+				</div>
 			</FadeInSection>
+
+			<div class="grid lg:grid-cols-5 gap-8 items-start">
+				<!-- Calculator - Takes 3 columns -->
+				<div class="lg:col-span-3">
+					<FadeInSection client:load delay={0.2}>
+						<QuoteCalculator client:load />
+					</FadeInSection>
+				</div>
+
+				<!-- Quick Contact - Takes 2 columns -->
+				<div class="lg:col-span-2">
+					<FadeInSection client:load delay={0.3}>
+						<QuickContact client:load />
+					</FadeInSection>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -237,49 +224,33 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-16">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
-						What We Do
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Comprehensive Construction Services
+						Our Services
 					</h2>
-					<p class="text-xl text-gray-700">
-						From concept to completion, we handle every aspect of your project
-					</p>
 				</div>
 			</FadeInSection>
 
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{[
 					{
-						title: 'Custom Home Construction',
-						description: 'Build your dream home from the ground up with personalized design and sustainable materials.',
+						title: 'Custom Homes',
+						description: 'Build your dream home from the ground up',
 						link: '/services#new-construction',
 					},
 					{
-						title: 'Whole Home Renovations',
-						description: 'Transform your existing space with complete remodeling and modern upgrades.',
+						title: 'Renovations',
+						description: 'Transform your existing space',
 						link: '/services#renovations',
 					},
 					{
-						title: 'Home Additions',
-						description: 'Expand your living space with seamless additions that match your home perfectly.',
+						title: 'Additions',
+						description: 'Expand your living space seamlessly',
 						link: '/services#additions',
 					},
 					{
-						title: 'Kitchen & Bath Remodeling',
-						description: 'Create stunning, functional spaces where your family gathers most.',
+						title: 'Remodeling',
+						description: 'Kitchen, bath, and interior updates',
 						link: '/services#remodeling',
-					},
-					{
-						title: 'Outdoor Living Spaces',
-						description: 'Decks, patios, and outdoor kitchens designed for mountain living.',
-						link: '/services#outdoor',
-					},
-					{
-						title: 'Green Building Consulting',
-						description: 'LEED support, solar integration, and sustainable construction expertise.',
-						link: '/services#green',
 					},
 				].map((service, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -320,15 +291,9 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-secondary/10 text-construction-secondary font-semibold rounded-full mb-4">
-						Testimonials
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						What Our Clients Say
+						Client Reviews
 					</h2>
-					<p class="text-xl text-gray-700">
-						Don't just take our word for it
-					</p>
 				</div>
 			</FadeInSection>
 
@@ -357,7 +322,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 						<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-construction-accent">
 							<div class="flex mb-4">
 								{Array.from({ length: testimonial.rating }).map((_, i) => (
-									<svg key={i} class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
+									<svg class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
 										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
 									</svg>
 								))}
@@ -382,26 +347,52 @@ const pageDescription = "Award-winning residential construction and renovation i
 
 	<!-- CTA Section -->
 	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Build Your Dream?
-				</h2>
-				<p class="text-xl text-gray-300 mb-8">
-					Let's discuss your vision and create something extraordinary together.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<div class="text-center mb-12">
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+						Ready to Start Your Project?
+					</h2>
+					<p class="text-xl text-gray-300">
+						Get in touch today for a free consultation
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-6 mb-12">
+					<div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+						<div class="text-4xl mb-3">📞</div>
+						<h3 class="text-white font-bold mb-2">Call Us</h3>
+						<a href="tel:+18283352845" class="text-construction-accent hover:text-white transition-colors font-semibold">
+							(828) 335-2845
+						</a>
+						<p class="text-gray-400 text-sm mt-2">Mon-Fri 8am-6pm</p>
+					</div>
+
+					<div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+						<div class="text-4xl mb-3">✉️</div>
+						<h3 class="text-white font-bold mb-2">Email Us</h3>
+						<a href="mailto:drew@abconstruction.builders" class="text-construction-accent hover:text-white transition-colors font-semibold text-sm">
+							drew@abconstruction.builders
+						</a>
+						<p class="text-gray-400 text-sm mt-2">24hr response time</p>
+					</div>
+
+					<div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+						<div class="text-4xl mb-3">📋</div>
+						<h3 class="text-white font-bold mb-2">Get Quote</h3>
+						<a href="/contact" class="text-construction-accent hover:text-white transition-colors font-semibold">
+							Online Form
+						</a>
+						<p class="text-gray-400 text-sm mt-2">Quick & easy</p>
+					</div>
+				</div>
+
+				<div class="text-center">
 					<a
 						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+						class="inline-block px-10 py-5 bg-construction-primary text-white rounded-lg font-bold text-xl hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
 					>
-						Schedule Consultation
-					</a>
-					<a
-						href="tel:+18285550123"
-						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
-					>
-						Call (828) 555-0123
+						Get Your Free Quote Now
 					</a>
 				</div>
 			</FadeInSection>

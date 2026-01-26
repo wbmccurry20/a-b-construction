@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import StickyContact from '../components/StickyContact';
 
 interface Props {
 	title: string;
@@ -57,5 +58,6 @@ const socialImageURL = new URL(image, Astro.site || 'https://abconstruction.com'
 	</head>
 	<body class="bg-construction-light text-construction-dark antialiased">
 		<slot />
+		<StickyContact client:load />
 	</body>
 </html>
