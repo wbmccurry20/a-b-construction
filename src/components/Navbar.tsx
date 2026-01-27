@@ -45,12 +45,12 @@ export default function Navbar({ client }: NavbarProps) {
             </div>
             <div className="hidden sm:block">
               <div className={`font-display font-bold text-xl transition-colors ${
-                isScrolled ? 'text-construction-dark' : 'text-white'
+                isScrolled ? 'text-construction-dark' : 'text-white drop-shadow-lg'
               }`}>
-                A&B Construction
+                Construction
               </div>
               <div className={`text-xs transition-colors ${
-                isScrolled ? 'text-construction-steel' : 'text-gray-300'
+                isScrolled ? 'text-construction-steel' : 'text-white drop-shadow-md'
               }`}>
                 Building the Future
               </div>
