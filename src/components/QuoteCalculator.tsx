@@ -58,7 +58,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY,
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
           subject: `Quote Calculator Estimate - ${selectedType?.label}`,
           project_type: selectedType?.label,
           square_footage: details.squareFootage,

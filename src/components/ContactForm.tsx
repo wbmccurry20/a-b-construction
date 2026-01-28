@@ -24,7 +24,7 @@ export default function ContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY,
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
           subject: `New Quote Request from ${formData.name}`,
           from_name: formData.name,
           ...formData,

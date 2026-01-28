@@ -13,7 +13,7 @@
 1. Open the `.env` file in the project root
 2. Replace `your_access_key_here` with your actual access key:
    ```
-   PUBLIC_WEB3FORMS_ACCESS_KEY=abc123xyz-your-actual-key-here
+   PUBLIC_WEB3FORMS_KEY=abc123xyz-your-actual-key-here
    ```
 
 ## Step 3: Update Contact Information
@@ -38,7 +38,7 @@ After testing locally, add the environment variable to Vercel:
 1. Go to your Vercel dashboard
 2. Select the A&B Construction project
 3. Go to Settings → Environment Variables
-4. Add: `PUBLIC_WEB3FORMS_ACCESS_KEY` = your actual key
+4. Add: `PUBLIC_WEB3FORMS_KEY` = your actual key
 5. Redeploy the site
 
 ## Notes
