@@ -18,7 +18,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        heading: ['Barlow Condensed', 'system-ui', 'sans-serif'],
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',

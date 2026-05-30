@@ -40,11 +40,11 @@ export default function Navbar({ client }: NavbarProps) {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-construction-primary to-construction-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 bg-construction-primary flex items-center justify-center">
               <span className="text-white font-bold text-xl">A&B</span>
             </div>
             <div className="hidden sm:block">
-              <div className={`font-display font-bold text-xl transition-colors ${
+              <div className={`font-heading font-bold text-xl transition-colors ${
                 isScrolled ? 'text-construction-dark' : 'text-white drop-shadow-lg'
               }`}>
                 Construction
@@ -63,7 +63,7 @@ export default function Navbar({ client }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                className={`px-4 py-2 font-medium font-heading uppercase tracking-wide text-sm transition-all ${
                   isScrolled
                     ? 'text-construction-dark hover:text-construction-primary hover:bg-construction-primary/10'
                     : 'text-white hover:bg-white/10'
@@ -76,7 +76,7 @@ export default function Navbar({ client }: NavbarProps) {
             {/* Phone CTA */}
             <a
               href="tel:+18283352845"
-              className={`ml-2 px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+              className={`ml-2 px-4 py-2 font-semibold transition-all flex items-center gap-2 ${
                 isScrolled
                   ? 'text-construction-primary hover:bg-construction-primary/10'
                   : 'text-white hover:bg-white/10'
@@ -91,7 +91,7 @@ export default function Navbar({ client }: NavbarProps) {
             {/* Get Quote Button */}
             <a
               href="/contact"
-              className="ml-2 px-6 py-2.5 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
+              className="ml-2 px-6 py-2.5 bg-construction-primary text-white font-heading font-semibold uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all"
             >
               Get Free Quote
             </a>
@@ -164,7 +164,7 @@ export default function Navbar({ client }: NavbarProps) {
             {/* Mobile Get Quote */}
             <a
               href="/contact"
-              className="block mx-4 mt-4 px-6 py-3 bg-gradient-to-r from-construction-primary to-construction-accent text-white rounded-lg font-semibold text-center"
+              className="block mx-4 mt-4 px-6 py-3 bg-construction-primary text-white font-heading font-semibold uppercase tracking-wider text-center hover:bg-construction-accent hover:text-construction-dark transition-all"
             >
               Get Free Quote
             </a>

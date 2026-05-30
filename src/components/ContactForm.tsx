@@ -62,7 +62,7 @@ export default function ContactForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12 bg-gray-900 p-8 rounded-2xl shadow-2xl border-2 border-gray-700"
+        className="text-center py-12 bg-gray-900 p-8 shadow-2xl border-2 border-gray-700"
       >
         <div className="inline-block p-4 bg-construction-primary/20 rounded-full mb-4 border-2 border-construction-primary shadow-lg">
           <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="px-6 py-3 bg-construction-primary text-white rounded-lg font-bold hover:bg-construction-accent transition-all shadow-xl"
+          className="px-6 py-3 bg-construction-primary text-white font-heading font-bold uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
         >
           Send Another Message
         </button>
@@ -86,7 +86,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-gray-900 p-8 rounded-2xl shadow-2xl border-2 border-gray-700">
+    <form onSubmit={handleSubmit} className="space-y-6 bg-gray-900 p-8 shadow-2xl border-2 border-gray-700">
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-bold text-white mb-2">
@@ -231,7 +231,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full px-8 py-4 bg-construction-primary text-white rounded-lg font-bold text-lg hover:bg-construction-accent hover:scale-105 transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+        className="w-full px-8 py-4 bg-construction-primary text-white font-heading font-bold text-lg uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'loading' ? (
           <span className="flex items-center justify-center">

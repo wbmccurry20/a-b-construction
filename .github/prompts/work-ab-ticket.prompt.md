@@ -25,9 +25,27 @@ Requirements:
 - Keep changes responsive, accessible, and SEO-aware when relevant.
 - Run `npm run build` when feasible after source changes.
 
-Finish with:
+Finish with a clearly formatted end report using this exact structure so it can be reviewed before merging:
 
-- what changed
-- files touched
-- build result
-- any unresolved ticket questions or follow-up review items
+---
+## TICKET END REPORT
+
+**Ticket:** [ticket number and title]
+**Branch:** [branch name]
+**Status:** READY FOR REVIEW / BLOCKED (choose one)
+
+### Acceptance Criteria
+- [ ] AC1: [restate criterion] — [DONE / NOT DONE / PARTIAL]
+- [ ] AC2: [restate criterion] — [DONE / NOT DONE / PARTIAL]
+
+### Files Changed
+| File | What changed |
+|---|---|
+| path/to/file | description |
+
+### Build Result
+[PASSED / FAILED] — [page count, error count, warning count]
+
+### Notes for Reviewer
+[Any caveats, follow-up items, content that needs client input, or decisions made during implementation]
+---

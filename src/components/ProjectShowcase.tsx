@@ -57,7 +57,7 @@ export default function ProjectShowcase() {
             whileTap={{ scale: 0.98 }}
           >
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-xl font-display font-bold">
+              <h3 className="text-xl font-heading font-bold">
                 {project.title}
               </h3>
               <span
@@ -101,7 +101,7 @@ export default function ProjectShowcase() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
-              <h3 className="text-3xl font-display font-bold mb-2">
+              <h3 className="text-3xl font-heading font-bold mb-2">
                 {selectedProject.title}
               </h3>
               <p className="text-sm opacity-90">{selectedProject.location}</p>

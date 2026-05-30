@@ -79,8 +79,8 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
   const estimate = calculateEstimate();
 
   return (
-    <div className="bg-gray-900 rounded-2xl shadow-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700">
-      <h3 className="text-3xl font-display font-bold text-white mb-2">
+    <div className="bg-gray-900 shadow-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700">
+      <h3 className="text-3xl font-heading font-bold text-white mb-2">
         Project Cost Calculator
       </h3>
       <p className="text-gray-100 font-medium mb-8">
@@ -304,7 +304,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-construction-primary to-construction-accent p-8 rounded-xl text-white mb-6">
+          <div className="bg-construction-primary p-8 text-white mb-6">
             <div className="text-5xl font-bold mb-2">${estimate.avg}</div>
             <div className="text-sm opacity-90">
               Range: ${estimate.low} - ${estimate.high}

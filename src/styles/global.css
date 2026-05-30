@@ -1,6 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
+
+@theme {
+  /* A&B Construction — Small Town Craftsman palette */
+  --color-construction-primary: #2D6A4F;
+  --color-construction-secondary: #74502A;
+  --color-construction-accent: #E9B84A;
+  --color-construction-dark: #1C1F1A;
+  --color-construction-light: #F7F3EC;
+  --color-construction-stone: #5C6047;
+
+  /* Font families */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Barlow Condensed', system-ui, sans-serif;
+
+  /* Animations */
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-scale-in: scaleIn 0.4s ease-out;
+
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+}
+
+/* Heading defaults — Barlow Condensed uppercase */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Condensed', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
 
 /* Base body styling with warm undertone */
 body {

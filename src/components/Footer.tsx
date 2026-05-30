@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-gradient-to-br from-construction-primary to-construction-accent rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">A&B</span>
               </div>
-              <div className="font-display font-bold text-lg">
+              <div className="font-heading font-bold text-lg">
                 A&B Construction
               </div>
             </div>
