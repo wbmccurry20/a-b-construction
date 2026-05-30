@@ -16,7 +16,7 @@ const projects = [
 		category: 'New Construction',
 		year: '2025',
 		sqft: '3,200 sq ft',
-		image: 'https://placehold.co/800x600/004E89/ffffff?text=Modern+Mountain+Retreat',
+		image: 'https://placehold.co/800x600/2D6A4F/ffffff?text=Modern+Mountain+Retreat',
 		description: 'A stunning contemporary home featuring floor-to-ceiling windows, sustainable materials, and smart home integration. Built to passive house standards.',
 		features: ['Solar panels', 'Rainwater collection', 'Geothermal heating', 'Smart home system'],
 	},
@@ -27,7 +27,7 @@ const projects = [
 		category: 'Renovation',
 		year: '2024',
 		sqft: '2,800 sq ft',
-		image: 'https://placehold.co/800x600/F7C548/1A1A2E?text=Historic+Craftsman',
+		image: 'https://placehold.co/800x600/E9B84A/1C1F1A?text=Historic+Craftsman',
 		description: 'Complete restoration of a 1920s craftsman home, preserving original character while adding modern amenities and energy efficiency.',
 		features: ['Original hardwood restored', 'Updated electrical/plumbing', 'Energy-efficient windows', 'Modern kitchen'],
 	},
@@ -38,7 +38,7 @@ const projects = [
 		category: 'Addition',
 		year: '2024',
 		sqft: '1,500 sq ft',
-		image: 'https://placehold.co/800x600/FF6B35/ffffff?text=Family+Addition',
+		image: 'https://placehold.co/800x600/74502A/ffffff?text=Family+Addition',
 		description: 'Two-bedroom second-story addition with master suite and home office, seamlessly matching the existing home\'s architecture.',
 		features: ['Two bedrooms', 'Master bathroom', 'Home office', 'Deck expansion'],
 	},
@@ -49,7 +49,7 @@ const projects = [
 		category: 'Renovation',
 		year: '2025',
 		sqft: '450 sq ft',
-		image: 'https://placehold.co/800x600/4A5568/ffffff?text=Luxury+Kitchen',
+		image: 'https://placehold.co/800x600/5C6047/ffffff?text=Luxury+Kitchen',
 		description: 'High-end kitchen transformation with custom cabinetry, premium appliances, and open concept design.',
 		features: ['Custom cabinets', 'Quartz countertops', 'Professional appliances', 'Smart lighting'],
 	},
@@ -60,7 +60,7 @@ const projects = [
 		category: 'Outdoor',
 		year: '2024',
 		sqft: '800 sq ft',
-		image: 'https://placehold.co/800x600/004E89/ffffff?text=Outdoor+Living',
+		image: 'https://placehold.co/800x600/2D6A4F/ffffff?text=Outdoor+Living',
 		description: 'Complete outdoor entertainment space with covered deck, outdoor kitchen, fire pit, and landscaping.',
 		features: ['Covered deck', 'Outdoor kitchen', 'Fire pit', 'Professional landscaping'],
 	},
@@ -71,7 +71,7 @@ const projects = [
 		category: 'New Construction',
 		year: '2025',
 		sqft: '2,500 sq ft',
-		image: 'https://placehold.co/800x600/22C55E/ffffff?text=Net+Zero+Green+Home',
+		image: 'https://placehold.co/800x600/2D6A4F/ffffff?text=Net+Zero+Green+Home',
 		description: 'LEED Platinum certified home producing as much energy as it consumes through solar and advanced building techniques.',
 		features: ['Net-zero energy', 'LEED Platinum', 'Triple-pane windows', 'Recycled materials'],
 	},
@@ -127,7 +127,7 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 				{projects.map((project, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
 						<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
-							<div class="relative h-64 bg-gradient-to-br from-construction-steel to-construction-secondary overflow-hidden">
+							<div class="relative h-64 bg-gradient-to-br from-construction-stone to-construction-secondary overflow-hidden">
 								<div class="absolute inset-0 flex items-center justify-center text-white text-6xl opacity-20">
 									{project.category === 'New Construction' && '🏗️'}
 									{project.category === 'Renovation' && '🔨'}
@@ -208,8 +208,8 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						</h3>
 						<BeforeAfterSlider
 							client:load
-						beforeImage="https://placehold.co/1200x800/8B7355/ffffff?text=Before+-+Historic+Home"
-						afterImage="https://placehold.co/1200x800/F7C548/1A1A2E?text=After+-+Restored+Beauty"
+						beforeImage="https://placehold.co/1200x800/74502A/ffffff?text=Before+-+Historic+Home"
+						afterImage="https://placehold.co/1200x800/E9B84A/1C1F1A?text=After+-+Restored+Beauty"
 							beforeAlt="Historic home before renovation"
 							afterAlt="Historic home after renovation"
 						/>
@@ -223,8 +223,8 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						</h3>
 						<BeforeAfterSlider
 							client:load
-						beforeImage="https://placehold.co/1200x800/D4C4B0/ffffff?text=Before+-+Dated+Kitchen"
-						afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+-+Modern+Kitchen"
+						beforeImage="https://placehold.co/1200x800/F7F3EC/1C1F1A?text=Before+-+Dated+Kitchen"
+						afterImage="https://placehold.co/1200x800/2D6A4F/ffffff?text=After+-+Modern+Kitchen"
 							beforeAlt="Kitchen before remodel"
 							afterAlt="Kitchen after remodel"
 						/>

@@ -155,7 +155,7 @@ const categories = ['All Posts', 'Home Building Tips', 'Project Updates', 'Susta
 				{blogPosts.slice(1).map((post, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
 						<article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
-							<div class="h-48 bg-gradient-to-br from-construction-steel to-construction-secondary flex items-center justify-center relative overflow-hidden">
+							<div class="h-48 bg-gradient-to-br from-construction-stone to-construction-secondary flex items-center justify-center relative overflow-hidden">
 								<div class="text-7xl text-white/20">
 									{post.category === 'Project Updates' && '📸'}
 									{post.category === 'Design Trends' && '✨'}

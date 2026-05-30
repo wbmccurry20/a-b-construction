@@ -50,7 +50,7 @@ export default function Navbar({ client }: NavbarProps) {
                 Construction
               </div>
               <div className={`text-xs transition-colors ${
-                isScrolled ? 'text-construction-steel' : 'text-white drop-shadow-md'
+                isScrolled ? 'text-construction-stone' : 'text-white drop-shadow-md'
               }`}>
                 Building the Future
               </div>

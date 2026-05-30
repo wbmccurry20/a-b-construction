@@ -9,7 +9,7 @@ const projects = [
     type: 'New Construction',
     sqft: '3,200 sq ft',
     year: '2025',
-    image: 'https://placehold.co/800x600/004E89/ffffff?text=Mountain+Home',
+    image: 'https://placehold.co/800x600/2D6A4F/ffffff?text=Mountain+Home',
     description: 'Contemporary design with sustainable materials and panoramic mountain views.',
     features: ['Solar panels', 'Rainwater collection', 'Passive heating'],
   },
@@ -20,7 +20,7 @@ const projects = [
     type: 'Renovation',
     sqft: '2,800 sq ft',
     year: '2024',
-    image: 'https://placehold.co/800x600/F7C548/1A1A2E?text=Historic+Revival',
+    image: 'https://placehold.co/800x600/E9B84A/1C1F1A?text=Historic+Revival',
     description: 'Restored 1920s craftsman with modern amenities while preserving original character.',
     features: ['Original hardwood restored', 'Modern kitchen', 'Energy efficient'],
   },
@@ -31,7 +31,7 @@ const projects = [
     type: 'Addition',
     sqft: '1,500 sq ft',
     year: '2024',
-    image: 'https://placehold.co/800x600/FF6B35/ffffff?text=Family+Addition',
+    image: 'https://placehold.co/800x600/74502A/ffffff?text=Family+Addition',
     description: 'Seamless second-story addition matching existing architecture.',
     features: ['Two bedrooms', 'Master bath', 'Home office'],
   },
@@ -74,7 +74,7 @@ export default function ProjectShowcase() {
               className={`text-sm ${
                 selectedProject.id === project.id
                   ? 'text-white/90'
-                  : 'text-construction-steel'
+                  : 'text-construction-stone'
               }`}
             >
               {project.location} • {project.sqft} • {project.year}
@@ -131,13 +131,13 @@ export default function ProjectShowcase() {
 
             <div className="mt-8 pt-6 border-t border-gray-200 flex justify-between items-center">
               <div>
-                <div className="text-sm text-construction-steel">Project Size</div>
+                <div className="text-sm text-construction-stone">Project Size</div>
                 <div className="text-lg font-semibold text-construction-dark">
                   {selectedProject.sqft}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-construction-steel">Completed</div>
+                <div className="text-sm text-construction-stone">Completed</div>
                 <div className="text-lg font-semibold text-construction-dark">
                   {selectedProject.year}
                 </div>

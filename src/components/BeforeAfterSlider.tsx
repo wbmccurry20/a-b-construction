@@ -75,7 +75,7 @@ export default function BeforeAfterSlider({
           className="w-full h-full object-cover"
           draggable={false}
         />
-        <div className="absolute top-4 left-4 bg-construction-steel text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+        <div className="absolute top-4 left-4 bg-construction-stone text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
           Before
         </div>
       </div>
