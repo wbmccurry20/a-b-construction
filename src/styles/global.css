@@ -4,7 +4,7 @@
 
 /* Base body styling with warm undertone */
 body {
-  background-color: #FAFAFA;
+  background-color: #F7F3EC;
 }
 
 /* Smooth scrolling */
@@ -18,26 +18,26 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1A2E;
+  background: #1C1F1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF6B35;
+  background: #2D6A4F;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F7C548;
+  background: #E9B84A;
 }
 
 /* Selection */
 ::selection {
-  background-color: #FF6B35;
+  background-color: #2D6A4F;
   color: white;
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #FF6B35;
+  outline: 2px solid #2D6A4F;
   outline-offset: 2px;
 }

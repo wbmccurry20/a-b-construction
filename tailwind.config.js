@@ -6,14 +6,14 @@ export default {
       // 🎨 BRAND COLORS - Easy to update when you get client's brand guide
       // Just replace the hex values below with your client's colors
       colors: {
-        // Professional construction palette with modern twist
+        // Small Town Craftsman palette - warm, residential, Western NC
         construction: {
-          primary: '#FF6B35',     // Bold safety orange - CTA buttons, key highlights
-          secondary: '#004E89',   // Deep professional blue - headers, trust elements  
-          accent: '#FFB81C',      // Bright construction yellow - badges, emphasis
-          dark: '#1A1A2E',        // Almost black - main text, dark backgrounds
-          light: '#F5F5F5',       // Off-white - page backgrounds
-          steel: '#4B5563',       // Darker steel gray (gray-600) - better readability
+          primary: '#2D6A4F',   // Forest green - trust, nature, community
+          secondary: '#74502A', // Walnut brown - craftsmanship, warmth, wood
+          accent: '#E9B84A',    // Warm amber/gold - quality highlights, CTAs
+          dark: '#1C1F1A',      // Near-black with warm undertone - text, dark sections
+          light: '#F7F3EC',     // Warm linen/cream - page backgrounds
+          stone: '#5C6047',     // Warm olive-gray - secondary text, muted elements
         },
       },
       fontFamily: {
