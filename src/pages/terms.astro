@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Terms of Service | A&B Construction" description="Terms governing use of the A&B Construction website.">
+	<Navbar client:load />
+
+	<!-- Hero -->
+	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
+		<svg
+			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
+			viewBox="0 0 400 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
+		</svg>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-4">Legal</p>
+				<h1 class="font-heading text-6xl md:text-7xl font-bold text-white mb-6">
+					Terms of Service
+				</h1>
+				<p class="text-white/50 text-lg">Last updated: June 1, 2026</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Content -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="space-y-10">
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Informational Purpose</h2>
+					<p class="text-gray-700 leading-relaxed">
+						This website is provided for informational purposes only. The content here — including descriptions of services, process, and approach — is intended to help you understand who we are and what we do. It does not constitute a binding offer or guarantee of any kind.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">No Contract From Contact Form</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Submitting the contact form on this site does not create a contract, agreement, or any legal obligation on the part of A&B Construction. All actual agreements are established through separate, signed written contracts between you and A&B Construction.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Accuracy of Information</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Information on this site — including pricing ranges, timelines, service descriptions, and availability — is provided in good faith and reflects general conditions. It may not reflect current pricing, material costs, scheduling availability, or site-specific conditions. Contact us directly to confirm details for your project.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Jurisdiction</h2>
+					<p class="text-gray-700 leading-relaxed">
+						These terms are governed by the laws of the State of North Carolina, United States. Any disputes arising from use of this website shall be resolved in the courts of Yancey County, North Carolina.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Contact</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Questions about these terms? Email <a href="mailto:drew@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">drew@abconstruction.builders</a>.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+</Layout>

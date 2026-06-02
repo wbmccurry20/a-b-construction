@@ -11,11 +11,11 @@ interface Props {
 const { 
 	title, 
 	description = "A&B Construction - Modern residential construction and renovation in Western North Carolina. Building sustainable, custom homes with 20+ years of experience.", 
-	image = "/images/og-image.jpg" 
+	image = "/favicon.svg" 
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://abconstruction.com');
-const socialImageURL = new URL(image, Astro.site || 'https://abconstruction.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://abconstruction.builders');
+const socialImageURL = new URL(image, 'https://abconstruction.builders');
 ---
 
 <!DOCTYPE html>

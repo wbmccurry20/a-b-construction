@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Privacy Policy | A&B Construction" description="How A&B Construction handles the information you share with us.">
+	<Navbar client:load />
+
+	<!-- Hero -->
+	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
+		<svg
+			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
+			viewBox="0 0 400 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
+		</svg>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-4">Legal</p>
+				<h1 class="font-heading text-6xl md:text-7xl font-bold text-white mb-6">
+					Privacy Policy
+				</h1>
+				<p class="text-white/50 text-lg">Last updated: June 1, 2026</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Content -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="prose prose-lg max-w-none space-y-10">
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">What We Collect</h2>
+					<p class="text-gray-700 leading-relaxed">
+						When you submit the contact form on this site, we receive your name, email address, phone number, and message. Nothing else. We do not use analytics, tracking pixels, session recording, or any other data collection tools.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">How We Use It</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Only to respond to your inquiry. Your information is not sold, shared with third parties for marketing purposes, or used for remarketing or advertising of any kind.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Third-Party Services</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Contact form submissions are processed by <a href="https://web3forms.com" class="text-construction-primary underline hover:text-construction-accent" target="_blank" rel="noopener noreferrer">Web3Forms</a>. When you submit the form, your data passes through their infrastructure. Please review <a href="https://web3forms.com/privacy" class="text-construction-primary underline hover:text-construction-accent" target="_blank" rel="noopener noreferrer">their privacy policy</a> for details on how they handle that data.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Cookies</h2>
+					<p class="text-gray-700 leading-relaxed">
+						This site does not use cookies, tracking pixels, or any form of browser-based tracking. No consent banner is shown because there is nothing to consent to.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Data Deletion</h2>
+					<p class="text-gray-700 leading-relaxed">
+						To request deletion of any information you submitted through our contact form, email us at <a href="mailto:drew@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">drew@abconstruction.builders</a>. We will confirm deletion within 14 days.
+					</p>
+				</div>
+
+				<div>
+					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Contact</h2>
+					<p class="text-gray-700 leading-relaxed">
+						A&B Construction<br />
+						120 W Main Street, Burnsville, NC 28714<br />
+						<a href="mailto:drew@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">drew@abconstruction.builders</a>
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+</Layout>
