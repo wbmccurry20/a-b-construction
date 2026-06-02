@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-construction-primary to-construction-accent rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-construction-secondary flex items-center justify-center">
                 <span className="text-white font-bold">A&B</span>
               </div>
               <div className="font-heading font-bold text-lg">
@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-4">
-              Building sustainable, custom homes in Western North Carolina for over 20 years.
+              Family-owned and mountain-built. Serving Burnsville and the surrounding communities of Western North Carolina.
             </p>
             <div className="flex space-x-4">
               <a
@@ -75,8 +75,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/blog" className="text-gray-300 hover:text-construction-primary transition-colors">
-                  Blog
+                <a href="/process" className="text-gray-300 hover:text-construction-primary transition-colors">
+                  Our Process
                 </a>
               </li>
             </ul>

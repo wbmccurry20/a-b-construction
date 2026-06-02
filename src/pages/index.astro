@@ -16,10 +16,20 @@ const pageDescription = "Residential construction and renovation in Western Nort
 
 	<!-- Hero Section -->
 	<section class="relative min-h-screen flex items-center overflow-hidden bg-construction-dark">
-		<div class="absolute inset-0 overflow-hidden pointer-events-none">
-			<div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-white/[0.02] rotate-45 -translate-y-1/2"></div>
-			<div class="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-white/[0.02] rotate-12 translate-y-1/3"></div>
-		</div>
+		<svg
+			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
+			viewBox="0 0 400 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
+		</svg>
 		<div class="absolute inset-0 opacity-5 pointer-events-none">
 			<div class="absolute top-0 left-0 w-96 h-96 bg-construction-primary rounded-full filter blur-3xl"></div>
 			<div class="absolute bottom-0 right-0 w-96 h-96 bg-construction-accent rounded-full filter blur-3xl"></div>
@@ -63,11 +73,11 @@ const pageDescription = "Residential construction and renovation in Western Nort
 						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Years in Business</p>
 					</div>
 					<div>
-						<span class="font-heading text-5xl font-bold text-white">500+</span>
+						<span class="font-heading text-5xl font-bold text-white">[X]+</span>
 						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Projects Completed</p>
 					</div>
 					<div>
-						<span class="font-heading text-5xl font-bold text-construction-accent">98%</span>
+						<span class="font-heading text-5xl font-bold text-construction-accent">[X]%</span>
 						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Client Satisfaction</p>
 					</div>
 				</div>
@@ -89,11 +99,11 @@ const pageDescription = "Residential construction and renovation in Western Nort
 				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Years</p>
 			</div>
 			<div>
-				<span class="font-heading text-4xl font-bold text-white">500+</span>
+				<span class="font-heading text-4xl font-bold text-white">[X]+</span>
 				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Projects</p>
 			</div>
 			<div>
-				<span class="font-heading text-4xl font-bold text-construction-accent">98%</span>
+				<span class="font-heading text-4xl font-bold text-construction-accent">[X]%</span>
 				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Satisfied</p>
 			</div>
 		</div>
@@ -115,18 +125,18 @@ const pageDescription = "Residential construction and renovation in Western Nort
 				{[
 					{
 						step: '01',
-						title: 'Modern Technology',
-						description: '3D modeling, drone surveys, and smart home integration on every project.',
+						title: 'Local Crews',
+						description: "Every person on your job is part of our team — no subcontractors we don't know personally. You get the same faces from day one to move-in day.",
 					},
 					{
 						step: '02',
-						title: 'Sustainable Building',
-						description: 'Eco-friendly materials, energy-efficient designs, and LEED certification.',
+						title: 'Mountain-Grade Materials',
+						description: "We source locally where we can and specify materials built for Western NC's climate — real wood, real stone, real craftsmanship.",
 					},
 					{
 						step: '03',
-						title: 'Expert Craftsmanship',
-						description: 'Decades of experience building quality homes in the mountains.',
+						title: 'Personal Project Management',
+						description: 'Drew is reachable. You get his number on day one. No phone trees, no project coordinator gatekeeping — just direct communication.',
 					},
 				].map((feature, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -329,8 +339,41 @@ const pageDescription = "Residential construction and renovation in Western Nort
 		</div>
 	</section>
 
+	<!-- We Serve Western NC -->
+	<section class="py-16 bg-construction-secondary">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-3">
+						Proudly Local
+					</p>
+					<h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
+						We Serve Western NC
+					</h2>
+					<p class="text-white/70 text-lg max-w-lg">
+						We're not a franchise. Every crew member lives in these mountains.
+						We work where we know the land, the climate, and the community.
+					</p>
+				</div>
+				<div class="grid grid-cols-3 gap-3">
+					{[
+						'Yancey County', 'Mitchell County', 'Avery County',
+						'Madison County', 'Buncombe County', 'McDowell County',
+						'Burke County', 'Watauga County', 'Caldwell County',
+					].map((county) => (
+						<div class="bg-white/10 px-3 py-3 text-center">
+							<span class="font-heading text-xs uppercase tracking-wider text-white/80">
+								{county}
+							</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Testimonials -->
-	<section class="py-20 bg-construction-light">
+	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-12">
@@ -344,26 +387,27 @@ const pageDescription = "Residential construction and renovation in Western Nort
 			<div class="grid md:grid-cols-3 gap-8">
 				{[
 					{
-						name: 'Sarah & Mike Johnson',
-						project: 'Custom Home Build',
-						quote: 'A&B Construction exceeded our expectations. Their use of technology kept us informed every step of the way, and the craftsmanship is outstanding.',
+						name: '[Client Name]',
+						project: '[Project Type, Location]',
+						quote: '[Client review — to be provided by A&B Construction]',
 						rating: 5,
 					},
 					{
-						name: 'David Martinez',
-						project: 'Historic Renovation',
-						quote: "They perfectly balanced preserving our home's character while adding modern conveniences. The project management portal was a game-changer.",
+						name: '[Client Name]',
+						project: '[Project Type, Location]',
+						quote: '[Client review — to be provided by A&B Construction]',
 						rating: 5,
 					},
 					{
-						name: 'Emily Chen',
-						project: 'Green Building Consultation',
-						quote: 'Their expertise in sustainable construction helped us achieve LEED certification. Professional, innovative, and dedicated to quality.',
+						name: '[Client Name]',
+						project: '[Project Type, Location]',
+						quote: '[Client review — to be provided by A&B Construction]',
 						rating: 5,
 					},
 				].map((testimonial, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white p-8 border-t-4 border-construction-accent hover:shadow-xl transition-shadow">
+						<div class="bg-construction-light p-8 border-l-4 border-construction-accent hover:shadow-xl transition-shadow">
+							<div class="font-heading text-6xl text-construction-accent/30 leading-none mb-2">"</div>
 							<div class="flex mb-4">
 								{Array.from({ length: testimonial.rating }).map((_, i) => (
 									<svg class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
@@ -386,6 +430,9 @@ const pageDescription = "Residential construction and renovation in Western Nort
 					</FadeInSection>
 				))}
 			</div>
+			<p class="text-xs text-gray-400 italic mt-6 text-center">
+				Replace placeholder reviews with real Google or Facebook reviews before launch.
+			</p>
 		</div>
 	</section>
 
@@ -394,8 +441,12 @@ const pageDescription = "Residential construction and renovation in Western Nort
 		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<h2 class="font-heading text-5xl md:text-7xl font-bold text-white leading-none mb-8">
-					Your Home.<br/><span class="text-construction-accent">Done Right.</span>
+					Your Home.<br/>
+					<span class="text-construction-accent">Your Mountains.</span>
 				</h2>
+				<p class="text-white/50 mt-4 text-xl max-w-xl mx-auto">
+					Built by people who live here, with materials that belong here.
+				</p>
 				<a
 					href="/contact"
 					class="inline-flex items-center px-10 py-5 bg-construction-primary text-white font-heading text-xl uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"

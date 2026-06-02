@@ -66,14 +66,14 @@ const projects = [
 	},
 	{
 		id: 6,
-		title: 'Net-Zero Green Home',
+		title: 'Custom Home Build',
 		location: 'Banner Elk, NC',
 		category: 'New Construction',
 		year: '2025',
 		sqft: '2,500 sq ft',
 		image: 'https://placehold.co/800x600/2D6A4F/ffffff?text=Net+Zero+Green+Home',
-		description: 'LEED Platinum certified home producing as much energy as it consumes through solar and advanced building techniques.',
-		features: ['Net-zero energy', 'LEED Platinum', 'Triple-pane windows', 'Recycled materials'],
+		description: 'Custom home build featuring energy-efficient construction and quality materials throughout.',
+		features: ['Energy-efficient systems', 'Triple-pane windows', 'Recycled materials', 'Quality materials'],
 	},
 ];
 
@@ -85,8 +85,20 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 
 	<!-- Hero (AC5) -->
 	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
-		<div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white/[0.02] rotate-45 -translate-y-1/2 pointer-events-none"></div>
-		<div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/[0.02] -rotate-12 translate-x-1/3 pointer-events-none"></div>
+		<svg
+			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
+			viewBox="0 0 400 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
+		</svg>
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="max-w-3xl">
@@ -112,11 +124,11 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Years in Business</div>
 				</div>
 				<div>
-					<div class="font-heading text-4xl md:text-5xl font-bold">500+</div>
+					<div class="font-heading text-4xl md:text-5xl font-bold">[X]+</div>
 					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Projects Completed</div>
 				</div>
 				<div>
-					<div class="font-heading text-4xl md:text-5xl font-bold">98%</div>
+					<div class="font-heading text-4xl md:text-5xl font-bold">[X]%</div>
 					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Happy Clients</div>
 				</div>
 				<div>

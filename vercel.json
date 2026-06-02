@@ -37,5 +37,8 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/blog", "destination": "/process", "permanent": true }
   ]
 }

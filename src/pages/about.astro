@@ -13,8 +13,20 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 
 	<!-- Hero (AC5) -->
 	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
-		<div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white/[0.02] rotate-45 -translate-y-1/2 pointer-events-none"></div>
-		<div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/[0.02] -rotate-12 translate-x-1/3 pointer-events-none"></div>
+		<svg
+			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
+			viewBox="0 0 400 600"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+		>
+			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
+			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
+		</svg>
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="max-w-3xl">
@@ -23,7 +35,7 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 						About A&B Construction
 					</h1>
 					<p class="text-xl text-white/60 max-w-xl">
-						Building dreams and lasting relationships in Western North Carolina since 2004.
+						Building dreams and lasting relationships in Western North Carolina since [YEAR].
 					</p>
 				</div>
 			</FadeInSection>
@@ -31,37 +43,27 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 	</section>
 
 	<!-- Our Story -->
-	<section class="py-20 bg-white">
+	<section class="py-20 bg-construction-light">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid lg:grid-cols-2 gap-12 items-start">
 				<FadeInSection client:load>
 					<div>
-						<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Since 2004</p>
+							<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Since [YEAR]</p>
 						<h2 class="font-heading text-4xl md:text-5xl font-bold text-construction-dark mb-6">
 							Our Story
 						</h2>
 						<div class="space-y-4 text-gray-700 text-lg">
-							<p>
-								A&B Construction was founded in 2004 by brothers Andrew and Benjamin Walker,
-								who grew up in the mountains of Western North Carolina with a deep appreciation
-								for quality craftsmanship and sustainable building practices.
+							<p class="italic text-gray-500">
+								[Client to provide: founding story — who started A&B, when, and why]
 							</p>
-							<p>
-								What started as a two-person operation building custom decks has grown into
-								a full-service residential construction company with over 30 skilled craftsmen,
-								designers, and project managers. Yet we've never lost sight of our core values:
-								quality, integrity, and personal service.
+							<p class="italic text-gray-500">
+								[Client to provide: how the business grew — team size, specialties developed]
 							</p>
-							<p>
-								Over the past 20 years, we've completed more than 500 projects throughout
-								Western North Carolina, from new custom homes to historic renovations.
-								Each project is a testament to our commitment to excellence and our passion
-								for creating spaces where families thrive.
+							<p class="italic text-gray-500">
+								[Client to provide: notable projects or milestones over the years]
 							</p>
-							<p>
-								Today, we're proud to be one of the region's leading construction companies,
-								known for our innovative approach, sustainable practices, and unwavering
-								dedication to client satisfaction.
+							<p class="italic text-gray-500">
+								[Client to provide: current focus and what makes A&B different today]
 							</p>
 						</div>
 					</div>
@@ -76,25 +78,25 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">20+</div>
 								<div>
 									<div class="font-heading font-bold uppercase tracking-wide">Years in Business</div>
-									<div class="text-white/50 text-sm">Established 2004</div>
+									<div class="text-white/50 text-sm">Established [YEAR]</div>
 								</div>
 							</div>
 							<div class="flex items-center border-b border-white/10 pb-6">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">500+</div>
+								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]+</div>
 								<div>
 									<div class="font-heading font-bold uppercase tracking-wide">Projects Completed</div>
 									<div class="text-white/50 text-sm">And counting</div>
 								</div>
 							</div>
 							<div class="flex items-center border-b border-white/10 pb-6">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">30+</div>
+								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]+</div>
 								<div>
 									<div class="font-heading font-bold uppercase tracking-wide">Team Members</div>
 									<div class="text-white/50 text-sm">Skilled professionals</div>
 								</div>
 							</div>
 							<div class="flex items-center">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">98%</div>
+								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]%</div>
 								<div>
 									<div class="font-heading font-bold uppercase tracking-wide">Client Satisfaction</div>
 									<div class="text-white/50 text-sm">Proven track record</div>
@@ -104,6 +106,12 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 					</div>
 				</FadeInSection>
 			</div>
+		</div>
+		<div class="mt-16 bg-construction-secondary p-8 text-center">
+			<p class="font-heading text-xl text-white/80 max-w-3xl mx-auto">
+				"We're not the biggest company in the mountains.
+				<span class="text-construction-accent"> We're just the most careful.</span>"
+			</p>
 		</div>
 	</section>
 
@@ -182,25 +190,25 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 			<div class="grid md:grid-cols-3 gap-8">
 				{[
 					{
-						name: 'Andrew Walker',
-						initials: 'AW',
-						role: 'Co-Founder & CEO',
-						bio: '20+ years of construction experience. Specializes in sustainable building and project management.',
-						credentials: 'Licensed General Contractor, LEED AP',
+						name: '[Owner Name]',
+						initials: '[??]',
+						role: 'Owner & General Contractor',
+						bio: '[Client to provide bio]',
+						credentials: '[Client to provide: license #, certifications]',
 					},
 					{
-						name: 'Benjamin Walker',
-						initials: 'BW',
-						role: 'Co-Founder & COO',
-						bio: 'Master craftsman with expertise in historic restoration and custom carpentry.',
-						credentials: 'Licensed General Contractor, Master Carpenter',
+						name: '[Team Member]',
+						initials: '[??]',
+						role: '[Role]',
+						bio: '[Client to provide bio]',
+						credentials: '[Client to provide]',
 					},
 					{
-						name: 'Sarah Martinez',
-						initials: 'SM',
-						role: 'Design Director',
-						bio: 'Award-winning architect bringing innovative designs to life for 15 years.',
-						credentials: 'Licensed Architect, AIA Member',
+						name: '[Team Member]',
+						initials: '[??]',
+						role: '[Role]',
+						bio: '[Client to provide bio]',
+						credentials: '[Client to provide]',
 					},
 				].map((member, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -236,33 +244,21 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 				<div class="mb-16">
 					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Trusted & Certified</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Certifications & Memberships
+						Licensing & Credentials
 					</h2>
 					<p class="text-xl text-gray-700 mt-4">
-						Proud members of industry-leading organizations
+						[Client to confirm and provide full credentials before launch]
 					</p>
 				</div>
+				<div class="bg-white border-t-4 border-construction-primary p-6 text-center max-w-sm">
+					<div class="font-heading text-xl font-bold text-construction-primary mb-2">
+						LICENSED &amp; INSURED
+					</div>
+					<div class="text-sm text-gray-700">
+						[Client to provide: license number, insurance carrier, any industry memberships]
+					</div>
+				</div>
 			</FadeInSection>
-
-			<div class="grid md:grid-cols-4 gap-8">
-				{[
-					{ name: 'NC Licensed General Contractor', abbr: 'NCLGC' },
-					{ name: 'LEED Accredited Professional', abbr: 'LEED AP' },
-					{ name: 'National Association of Home Builders', abbr: 'NAHB' },
-					{ name: 'Better Business Bureau A+ Rating', abbr: 'BBB A+' },
-				].map((cert, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white border-t-4 border-construction-primary/40 p-6 text-center hover:border-construction-primary hover:shadow-xl transition-all">
-							<div class="font-heading text-4xl font-bold text-construction-primary mb-2">
-								{cert.abbr}
-							</div>
-							<div class="text-sm text-gray-700 font-semibold">
-								{cert.name}
-							</div>
-						</div>
-					</FadeInSection>
-				))}
-			</div>
 		</div>
 	</section>
 

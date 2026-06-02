@@ -23,6 +23,7 @@ export default function Navbar({ client }: NavbarProps) {
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
+    { name: 'Process', href: '/process' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -52,7 +53,7 @@ export default function Navbar({ client }: NavbarProps) {
               <div className={`text-xs transition-colors ${
                 isScrolled ? 'text-construction-stone' : 'text-white drop-shadow-md'
               }`}>
-                Building the Future
+                Western NC's Trusted Builder
               </div>
             </div>
           </a>
