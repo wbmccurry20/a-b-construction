@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion, useInView, useAnimation, useReducedMotion } from 'framer-motion';
 
 interface FadeInSectionProps {
   children: React.ReactNode;
@@ -10,6 +10,7 @@ export default function FadeInSection({ children, delay = 0 }: FadeInSectionProp
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const controls = useAnimation();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (isInView) {
@@ -20,15 +21,15 @@ export default function FadeInSection({ children, delay = 0 }: FadeInSectionProp
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
+      initial={shouldReduceMotion ? false : 'hidden'}
       animate={controls}
       variants={{
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
         visible: {
           opacity: 1,
           y: 0,
           transition: {
-            duration: 0.6,
+            duration: shouldReduceMotion ? 0 : 0.6,
             delay,
             ease: 'easeOut',
           },

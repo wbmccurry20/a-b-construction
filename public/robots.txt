@@ -4,6 +4,3 @@ Allow: /
 # Disallow admin areas
 Disallow: /admin/
 Disallow: /.env
-
-# Sitemap
-Sitemap: https://buildwithab.com/sitemap.xml

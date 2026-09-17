@@ -60,7 +60,7 @@ a-b-construction-modern/
 ├── public/
 │   ├── images/
 │   │   └── README.md                  # Image requirements guide
-│   └── logo-placeholder.txt           # Logo placement instructions
+│   └── construction-pattern.svg       # Local visual fallback until photos arrive
 │
 └── src/
     ├── styles/
@@ -216,7 +216,7 @@ Open `http://localhost:4321` to preview!
 - [x] Before/after image slider
 - [x] Dynamic project showcase
 - [x] Services section
-- [x] Testimonials
+- [x] Trust/process section without invented testimonials
 - [x] Contact page with modern form
 - [x] Footer with company info
 - [x] Smooth scroll animations
@@ -229,16 +229,15 @@ Open `http://localhost:4321` to preview!
 
 ## 📝 Next Steps (To-Do List)
 
-### 1. **Add Images** (1-2 hours)
-- [ ] Add company logo to `/public/images/`
-- [ ] Add project photos
-- [ ] Add before/after examples
-- [ ] See `/public/images/README.md` for specs
+### 1. **Add Approved Images** (1-2 hours)
+- [ ] Add approved company logo to `/public/`
+- [ ] Add approved project photos
+- [ ] Add approved before/after examples
 
 ### 2. **Customize Content** (1 hour)
 - [ ] Update company info in `src/components/Footer.tsx`
 - [ ] Update project data in `src/components/ProjectShowcase.tsx`
-- [ ] Add real testimonials in `src/pages/index.astro`
+- [ ] Add verified testimonials in `src/pages/index.astro`
 - [ ] Update contact info in `src/pages/contact.astro`
 
 ### 3. **Set Up Contact Form** (15 minutes)
@@ -251,7 +250,7 @@ Open `http://localhost:4321` to preview!
 - [ ] Services page (`src/pages/services.astro`)
 - [ ] Portfolio page (`src/pages/portfolio.astro`)
 - [ ] About page (`src/pages/about.astro`)
-- [ ] Blog setup (optional)
+- [x] Field Notes page (`src/pages/blog.astro`)
 
 ### 5. **Deploy** (30 minutes)
 - [ ] Build: `npm run build`

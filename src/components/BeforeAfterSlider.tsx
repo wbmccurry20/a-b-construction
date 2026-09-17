@@ -37,6 +37,16 @@ export default function BeforeAfterSlider({
     handleMove(e.touches[0].clientX, rect);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      setSliderPosition((position) => Math.max(0, Math.min(position + (e.key === 'ArrowRight' ? 5 : -5), 100)));
+    }
+
+    if (e.key === 'Home') setSliderPosition(0);
+    if (e.key === 'End') setSliderPosition(100);
+  };
+
   useEffect(() => {
     const handleGlobalMouseUp = () => setIsDragging(false);
     window.addEventListener('mouseup', handleGlobalMouseUp);
@@ -50,6 +60,13 @@ export default function BeforeAfterSlider({
       onTouchMove={handleTouchMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onKeyDown={handleKeyDown}
+      role="slider"
+      tabIndex={0}
+      aria-label="Compare before and after images"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(sliderPosition)}
     >
       {/* After Image (background) */}
       <div className="absolute inset-0">

@@ -57,7 +57,10 @@ const socialImageURL = new URL(image, 'https://abconstruction.builders');
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	</head>
 	<body class="bg-construction-light text-construction-dark antialiased">
-		<slot />
+		<a href="#main-content" class="skip-link">Skip to content</a>
+		<div id="main-content">
+			<slot />
+		</div>
 		<StickyContact client:load />
 	</body>
 </html>

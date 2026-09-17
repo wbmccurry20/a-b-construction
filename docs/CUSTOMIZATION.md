@@ -29,7 +29,7 @@ colors: {
 
 ## 📸 Updating Images
 
-All images currently use placeholder services. Here's what to replace:
+The site uses `/public/construction-pattern.svg` as a local visual fallback until final project photography is available. Replace those references with approved client assets when they exist:
 
 ### Before/After Slider Images
 **Location:** These appear on Homepage and Portfolio page
@@ -38,10 +38,10 @@ All images currently use placeholder services. Here's what to replace:
 - `src/pages/index.astro` (line ~165)
 - `src/pages/portfolio.astro` (lines ~208, ~223)
 
-**Current placeholders:**
+**Current fallback:**
 ```astro
-beforeImage="https://placehold.co/1200x800/cccccc/ffffff?text=Before"
-afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After"
+beforeImage="/construction-pattern.svg"
+afterImage="/construction-pattern.svg"
 ```
 
 **Replace with your images:**
@@ -57,9 +57,9 @@ afterImage="/images/after-kitchen-renovation.jpg"
 - `src/pages/portfolio.astro` (lines ~19, ~30, ~41, ~52, ~63, ~74)
 - `src/components/ProjectShowcase.tsx` (lines ~12, ~23, ~34)
 
-**Current placeholders:**
+**Current fallback:**
 ```js
-image: 'https://placehold.co/800x600/004E89/ffffff?text=Project+1',
+image: '/construction-pattern.svg',
 ```
 
 **Replace with your images:**
