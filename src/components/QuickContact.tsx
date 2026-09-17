@@ -58,7 +58,7 @@ export default function QuickContact() {
               onChange={(e) => setPhone(e.target.value)}
               required
               placeholder="(828) 335-2845"
-              className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary placeholder:text-gray-500 font-medium shadow-md"
+              className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary placeholder:text-construction-stone font-medium shadow-md"
             />
           </div>
 
@@ -72,7 +72,7 @@ export default function QuickContact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
-              className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary placeholder:text-gray-500 font-medium shadow-md"
+              className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary placeholder:text-construction-stone font-medium shadow-md"
             />
           </div>
 

@@ -6,19 +6,19 @@ export default {
       // 🎨 BRAND COLORS - Easy to update when you get client's brand guide
       // Just replace the hex values below with your client's colors
       colors: {
-        // Small Town Craftsman palette - warm, residential, Western NC
+        // Blue Ridge palette — spruce, walnut, and bronze for Western NC
         construction: {
-          primary: '#2D6A4F',   // Forest green - trust, nature, community
-          secondary: '#74502A', // Walnut brown - craftsmanship, warmth, wood
-          accent: '#E9B84A',    // Warm amber/gold - quality highlights, CTAs
-          dark: '#1C1F1A',      // Near-black with warm undertone - text, dark sections
-          light: '#F7F3EC',     // Warm linen/cream - page backgrounds
-          stone: '#5C6047',     // Warm olive-gray - secondary text, muted elements
+          primary: '#1F3A3A',   // Deep spruce/teal - trust, mountains, depth
+          secondary: '#3F2A22', // Dark walnut - craftsmanship, warmth, wood
+          accent: '#C4A574',    // Bronze/tan - quality highlights, CTAs
+          dark: '#121417',      // Near-black - text, dark sections
+          light: '#F3EFE7',     // Warm paper - page backgrounds
+          stone: '#6E6A62',     // Warm slate-gray - secondary text, muted elements
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Barlow Condensed', 'system-ui', 'sans-serif'],
+        sans: ['Figtree', 'system-ui', 'sans-serif'],
+        heading: ['Newsreader', 'Georgia', 'serif'],
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',

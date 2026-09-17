@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface NavbarProps {
   client?: string;
@@ -8,6 +8,7 @@ interface NavbarProps {
 export default function Navbar({ client }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,16 +25,17 @@ export default function Navbar({ client }: NavbarProps) {
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
     { name: 'Process', href: '/process' },
+    { name: 'Field Notes', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={shouldReduceMotion ? false : { y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b-2 border-construction-accent/30'
+          ? 'bg-construction-light/95 backdrop-blur-md shadow-lg border-b border-construction-dark/10'
           : 'bg-transparent'
       }`}
     >
@@ -41,19 +43,19 @@ export default function Navbar({ client }: NavbarProps) {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2 group">
-            <div className="w-12 h-12 bg-construction-primary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A&B</span>
+            <div className="w-11 h-11 bg-construction-accent text-construction-dark flex items-center justify-center shadow-[4px_4px_0_#1F3A3A]">
+              <span className="font-heading font-bold text-lg">A&B</span>
             </div>
             <div className="hidden sm:block">
-              <div className={`font-heading font-bold text-xl transition-colors ${
+                <div className={`font-heading font-bold text-lg transition-colors ${
                 isScrolled ? 'text-construction-dark' : 'text-white drop-shadow-lg'
               }`}>
                 Construction
               </div>
-              <div className={`text-xs transition-colors ${
+                <div className={`text-[0.65rem] uppercase tracking-[0.16em] transition-colors ${
                 isScrolled ? 'text-construction-stone' : 'text-white drop-shadow-md'
               }`}>
-                Western NC's Trusted Builder
+                Burnsville, NC
               </div>
             </div>
           </a>
@@ -64,7 +66,7 @@ export default function Navbar({ client }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 font-medium font-heading uppercase tracking-wide text-sm transition-all ${
+                className={`px-3 py-2 font-medium font-heading uppercase tracking-[0.12em] text-xs transition-all ${
                   isScrolled
                     ? 'text-construction-dark hover:text-construction-primary hover:bg-construction-primary/10'
                     : 'text-white hover:bg-white/10'
@@ -92,7 +94,7 @@ export default function Navbar({ client }: NavbarProps) {
             {/* Get Quote Button */}
             <a
               href="/contact"
-              className="ml-2 px-6 py-2.5 bg-construction-primary text-white font-heading font-semibold uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all"
+              className="ml-2 px-5 py-3 bg-construction-primary text-white font-heading font-semibold uppercase tracking-[0.12em] text-xs hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all"
             >
               Get Free Quote
             </a>
@@ -107,6 +109,7 @@ export default function Navbar({ client }: NavbarProps) {
                 : 'hover:bg-white/10 text-white'
             }`}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
               className="w-6 h-6"
@@ -139,13 +142,14 @@ export default function Navbar({ client }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden py-4 bg-white border-t"
+            className="lg:hidden py-4 bg-construction-light border-t border-construction-dark/10"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 className="block px-4 py-3 text-construction-dark hover:bg-construction-primary/10 hover:text-construction-primary transition-colors font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </a>
@@ -166,6 +170,7 @@ export default function Navbar({ client }: NavbarProps) {
             <a
               href="/contact"
               className="block mx-4 mt-4 px-6 py-3 bg-construction-primary text-white font-heading font-semibold uppercase tracking-wider text-center hover:bg-construction-accent hover:text-construction-dark transition-all"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Free Quote
             </a>

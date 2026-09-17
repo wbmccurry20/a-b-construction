@@ -11,10 +11,17 @@ export default function ContactForm() {
     budget: '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'missing-key'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setStatus('missing-key');
+      return;
+    }
+
     setStatus('loading');
 
     try {
@@ -24,7 +31,7 @@ export default function ContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
+          access_key: accessKey,
           subject: `New Quote Request from ${formData.name}`,
           from_name: formData.name,
           ...formData,
@@ -156,7 +163,6 @@ export default function ContactForm() {
           <option value="addition">Home Addition</option>
           <option value="kitchen-bath">Kitchen/Bath Remodel</option>
           <option value="outdoor">Outdoor Living Space</option>
-          <option value="green">Green Building Project</option>
           <option value="other">Other</option>
         </select>
       </div>
@@ -221,9 +227,11 @@ export default function ContactForm() {
       </div>
 
       {/* Error Message */}
-      {status === 'error' && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-          Something went wrong. Please try again or call us at (828) 335-2845.
+      {(status === 'error' || status === 'missing-key') && (
+        <div className="p-4 bg-red-50 border border-red-200 text-red-700">
+          {status === 'missing-key'
+            ? 'Online submissions are being set up. Please call (828) 335-2845 or email info@abconstruction.builders and we\'ll get right back to you.'
+            : 'Something went wrong. Please try again or call us at (828) 335-2845.'}
         </div>
       )}
 

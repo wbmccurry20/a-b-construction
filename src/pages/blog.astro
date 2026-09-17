@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import FadeInSection from '../components/FadeInSection';
+import Footer from '../components/Footer';
+
+const pageTitle = 'Field Notes | A&B Construction';
+const pageDescription = 'Practical notes about building, renovating, and living well in the mountains of Western North Carolina.';
+
+const posts = [
+  {
+    label: 'Planning',
+    title: 'Start with the site, not the floor plan',
+    excerpt: 'Mountain lots ask different questions. Before choosing finishes, look at access, grade, drainage, utilities, and how the home will meet the land.',
+    points: ['Access and staging', 'Slope and drainage', 'Views, light, and orientation'],
+  },
+  {
+    label: 'Renovation',
+    title: 'A calmer way to plan a renovation',
+    excerpt: 'The best renovation conversations begin with how a space needs to work. A clear scope keeps design decisions useful and construction communication direct.',
+    points: ['Name the daily friction', 'Separate needs from wants', 'Decide what stays early'],
+  },
+  {
+    label: 'Materials',
+    title: 'Choose materials for the mountain climate',
+    excerpt: 'Western North Carolina weather rewards thoughtful details. Durable assemblies, careful water management, and maintainable finishes matter as much as the look.',
+    points: ['Manage water first', 'Plan for maintenance', 'Use materials with a purpose'],
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar client:load />
+
+  <main>
+    <section class="relative overflow-hidden bg-construction-dark pt-36 pb-24">
+      <div class="absolute inset-y-0 right-0 w-1/2 bg-construction-primary/20 [clip-path:polygon(35%_0,100%_0,100%_100%,0_100%)]"></div>
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <FadeInSection client:load>
+          <div class="max-w-3xl">
+            <p class="mb-4 font-heading text-sm uppercase tracking-[0.18em] text-construction-accent">Field Notes</p>
+            <h1 class="max-w-2xl font-heading text-5xl font-bold leading-tight text-white md:text-7xl">Useful thoughts for building here.</h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/65 md:text-xl">A short collection of practical guidance for homeowners planning a custom home, renovation, or addition in Western North Carolina.</p>
+          </div>
+        </FadeInSection>
+      </div>
+    </section>
+
+    <section class="bg-construction-light py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-3">
+          {posts.map((post, index) => (
+            <FadeInSection client:load delay={index * 0.1}>
+              <article class="flex h-full flex-col border border-construction-dark/10 bg-white p-8 shadow-[8px_8px_0_rgba(31,58,58,0.12)]">
+                <div class="mb-10 flex items-center justify-between border-b border-construction-dark/10 pb-4">
+                  <span class="font-heading text-xs font-bold uppercase tracking-[0.16em] text-construction-primary">{post.label}</span>
+                  <span class="font-heading text-xs uppercase tracking-[0.16em] text-construction-stone">WNC</span>
+                </div>
+                <h2 class="font-heading text-3xl font-bold leading-tight text-construction-dark">{post.title}</h2>
+                <p class="mt-5 flex-1 leading-relaxed text-gray-700">{post.excerpt}</p>
+                <ul class="mt-8 space-y-3 border-t border-construction-dark/10 pt-6">
+                  {post.points.map((point) => (
+                    <li class="flex items-start gap-3 text-sm font-medium text-construction-dark">
+                      <span class="mt-1 h-2 w-2 shrink-0 bg-construction-accent"></span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </FadeInSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-construction-secondary py-20">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="font-heading text-sm uppercase tracking-[0.18em] text-construction-accent">Have a project in mind?</p>
+        <h2 class="mt-4 font-heading text-4xl font-bold text-white md:text-5xl">Bring the questions. We will bring a clear next step.</h2>
+        <a href="/contact" class="mt-8 inline-flex items-center bg-construction-accent px-7 py-4 font-heading text-sm font-bold uppercase tracking-[0.14em] text-construction-dark transition hover:bg-white">Start a conversation <span class="ml-3 text-lg">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

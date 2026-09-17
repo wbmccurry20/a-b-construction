@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* A&B Construction — Small Town Craftsman palette */
-  --color-construction-primary: #2D6A4F;
-  --color-construction-secondary: #74502A;
-  --color-construction-accent: #E9B84A;
-  --color-construction-dark: #1C1F1A;
-  --color-construction-light: #F7F3EC;
-  --color-construction-stone: #5C6047;
+  /* A&B Construction — Blue Ridge palette */
+  --color-construction-primary: #1F3A3A;
+  --color-construction-secondary: #3F2A22;
+  --color-construction-accent: #C4A574;
+  --color-construction-dark: #121417;
+  --color-construction-light: #F3EFE7;
+  --color-construction-stone: #6E6A62;
 
   /* Font families */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Barlow Condensed', system-ui, sans-serif;
+  --font-sans: 'Figtree', system-ui, sans-serif;
+  --font-heading: 'Newsreader', Georgia, serif;
 
   /* Animations */
   --animate-slide-up: slideUp 0.5s ease-out;
@@ -34,22 +34,25 @@
   }
 }
 
-/* Heading defaults — Barlow Condensed uppercase */
+/* Headings use an editorial serif display face while body copy stays clean and readable. */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Barlow Condensed', system-ui, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
+  font-family: 'Newsreader', Georgia, serif;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-/* Base body styling with warm undertone */
+/* Base body styling with a warm paper undertone. */
 body {
-  background-color: #F7F3EC;
+  background-color: #F3EFE7;
+  color: #121417;
+  font-family: 'Figtree', system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  background: #F3EFE7;
 }
 
 /* Custom scrollbar */
@@ -58,26 +61,63 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1C1F1A;
+  background: #121417;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2D6A4F;
-  border-radius: 5px;
+  background: #1F3A3A;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E9B84A;
+  background: #C4A574;
 }
 
 /* Selection */
 ::selection {
-  background-color: #2D6A4F;
-  color: white;
+  background-color: #C4A574;
+  color: #121417;
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #2D6A4F;
-  outline-offset: 2px;
+  outline: 3px solid #C4A574;
+  outline-offset: 3px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-160%);
+  background: #C4A574;
+  color: #121417;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

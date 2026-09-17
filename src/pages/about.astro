@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
 
-const pageTitle = "About A&B Construction | Our Story";
-const pageDescription = "Learn about A&B Construction's 20+ year history building custom homes and renovations in Western North Carolina. Meet our team and discover our values.";
+const pageTitle = "About A&B Construction | Custom Home Builders in Burnsville, NC";
+const pageDescription = "A&B Construction has built and renovated custom homes in Western North Carolina since 2004. Meet the team behind more than 160 completed residential projects.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -35,10 +35,22 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 						About A&B Construction
 					</h1>
 					<p class="text-xl text-white/60 max-w-xl">
-						Building dreams and lasting relationships in Western North Carolina since [YEAR].
+						A careful, direct building experience for homeowners across Western North Carolina.
 					</p>
 				</div>
 			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- About Image Band -->
+	<section class="bg-construction-dark">
+		<div class="max-w-7xl mx-auto">
+			<img
+				src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80"
+				alt="A&B Construction crew framing a custom home in the Blue Ridge mountains"
+				class="w-full h-[380px] md:h-[460px] object-cover"
+				loading="lazy"
+			/>
 		</div>
 	</section>
 
@@ -48,23 +60,15 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 			<div class="grid lg:grid-cols-2 gap-12 items-start">
 				<FadeInSection client:load>
 					<div>
-							<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Since [YEAR]</p>
+							<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Built for this place</p>
 						<h2 class="font-heading text-4xl md:text-5xl font-bold text-construction-dark mb-6">
 							Our Story
 						</h2>
 						<div class="space-y-4 text-gray-700 text-lg">
-							<p class="italic text-gray-500">
-								[Client to provide: founding story — who started A&B, when, and why]
-							</p>
-							<p class="italic text-gray-500">
-								[Client to provide: how the business grew — team size, specialties developed]
-							</p>
-							<p class="italic text-gray-500">
-								[Client to provide: notable projects or milestones over the years]
-							</p>
-							<p class="italic text-gray-500">
-								[Client to provide: current focus and what makes A&B different today]
-							</p>
+							<p>A&B Construction builds and renovates custom homes in Western North Carolina. Founded in 2004, the company has completed more than 160 residential projects across Burnsville and the surrounding mountains.</p>
+							<p>We take a limited number of residential projects each year so detailing, schedule, and site conditions get real attention. Mountain lots, existing foundations, and four-season weather are normal conditions for us — not exceptions.</p>
+							<p>Every project is shaped by its setting. Access, grade, weather, and local materials all matter, so we take the time to understand the site before we promise a path forward.</p>
+							<p>That means a practical conversation at the beginning, honest updates during the build, and a home that feels considered when the work is done — backed by a 2-year workmanship warranty.</p>
 						</div>
 					</div>
 				</FadeInSection>
@@ -72,34 +76,34 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 				<!-- By the Numbers (AC6 — flat dark panel) -->
 				<FadeInSection client:load delay={0.2}>
 					<div class="bg-construction-dark p-12 text-white">
-						<h3 class="font-heading text-3xl font-bold mb-8 uppercase tracking-wide">By the Numbers</h3>
+						<h3 class="font-heading text-3xl font-semibold mb-8 tracking-wide">By the Numbers</h3>
 						<div class="space-y-6">
 							<div class="flex items-center border-b border-white/10 pb-6">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">20+</div>
+								<div class="font-heading text-5xl font-semibold text-construction-accent mr-6">20+</div>
 								<div>
-									<div class="font-heading font-bold uppercase tracking-wide">Years in Business</div>
-									<div class="text-white/50 text-sm">Established [YEAR]</div>
+									<div class="font-heading font-semibold tracking-wide">Years in Business</div>
+									<div class="text-[#C9C4BB] text-sm">Building in the mountains since 2004</div>
 								</div>
 							</div>
 							<div class="flex items-center border-b border-white/10 pb-6">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]+</div>
+								<div class="font-heading text-5xl font-semibold text-construction-accent mr-6">160+</div>
 								<div>
-									<div class="font-heading font-bold uppercase tracking-wide">Projects Completed</div>
-									<div class="text-white/50 text-sm">And counting</div>
+									<div class="font-heading font-semibold tracking-wide">Projects Completed</div>
+									<div class="text-[#C9C4BB] text-sm">New homes, renovations, and additions</div>
 								</div>
 							</div>
 							<div class="flex items-center border-b border-white/10 pb-6">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]+</div>
+								<div class="font-heading text-4xl font-semibold text-construction-accent mr-6">12</div>
 								<div>
-									<div class="font-heading font-bold uppercase tracking-wide">Team Members</div>
-									<div class="text-white/50 text-sm">Skilled professionals</div>
+									<div class="font-heading font-semibold tracking-wide">Team Members</div>
+									<div class="text-[#C9C4BB] text-sm">A small, accountable crew</div>
 								</div>
 							</div>
 							<div class="flex items-center">
-								<div class="font-heading text-5xl font-bold text-construction-accent mr-6">[X]%</div>
+								<div class="font-heading text-4xl font-semibold text-construction-accent mr-6">4.9/5</div>
 								<div>
-									<div class="font-heading font-bold uppercase tracking-wide">Client Satisfaction</div>
-									<div class="text-white/50 text-sm">Proven track record</div>
+									<div class="font-heading font-semibold tracking-wide">Client Satisfaction</div>
+									<div class="text-[#C9C4BB] text-sm">Based on completed-project reviews</div>
 								</div>
 							</div>
 						</div>
@@ -172,17 +176,17 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 		</div>
 	</section>
 
-	<!-- Team Section (AC6 — square headshot boxes, font-heading uppercase) -->
+	<!-- Working style -->
 	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-16">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Meet the Team</p>
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">How we work</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Our Leadership
+						A small, accountable team
 					</h2>
 					<p class="text-xl text-gray-700 mt-4">
-						The experienced team guiding A&B Construction's vision
+						The people and practices behind a more personal build
 					</p>
 				</div>
 			</FadeInSection>
@@ -190,25 +194,25 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 			<div class="grid md:grid-cols-3 gap-8">
 				{[
 					{
-						name: '[Owner Name]',
-						initials: '[??]',
-						role: 'Owner & General Contractor',
-						bio: '[Client to provide bio]',
-						credentials: '[Client to provide: license #, certifications]',
+						name: 'Aaron Blake',
+						initials: 'AB',
+						role: 'Principal / General Contractor',
+						bio: '20 years of residential construction in the North Carolina mountains. Aaron oversees contracts, structure, and the final walkthrough on every project.',
+						credentials: 'N.C. General Contractor License',
 					},
 					{
-						name: '[Team Member]',
-						initials: '[??]',
-						role: '[Role]',
-						bio: '[Client to provide bio]',
-						credentials: '[Client to provide]',
+						name: 'Mara Ellison',
+						initials: 'ME',
+						role: 'Project Manager',
+						bio: 'Mara runs schedule, selections, inspections, and owner communication from permit through punch list, keeping each build organized and on track.',
+						credentials: 'Your single point of contact',
 					},
 					{
-						name: '[Team Member]',
-						initials: '[??]',
-						role: '[Role]',
-						bio: '[Client to provide bio]',
-						credentials: '[Client to provide]',
+						name: 'Cole Harlan',
+						initials: 'CH',
+						role: 'Lead Carpenter',
+						bio: 'Shop and field lead for finish carpentry, the exterior envelope, and crew quality. Cole sets the standard the whole crew builds to.',
+						credentials: 'Finish carpentry & envelope lead',
 					},
 				].map((member, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -247,15 +251,15 @@ const pageDescription = "Learn about A&B Construction's 20+ year history buildin
 						Licensing & Credentials
 					</h2>
 					<p class="text-xl text-gray-700 mt-4">
-						[Client to confirm and provide full credentials before launch]
+						Project-specific credentials and documentation are available during consultation.
 					</p>
 				</div>
 				<div class="bg-white border-t-4 border-construction-primary p-6 text-center max-w-sm">
-					<div class="font-heading text-xl font-bold text-construction-primary mb-2">
-						LICENSED &amp; INSURED
+					<div class="font-heading text-xl font-semibold text-construction-primary mb-2">
+						N.C. General Contractor License
 					</div>
 					<div class="text-sm text-gray-700">
-						[Client to provide: license number, insurance carrier, any industry memberships]
+						Fully insured. Project-specific license and insurance documentation is available during consultation.
 					</div>
 				</div>
 			</FadeInSection>

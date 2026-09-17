@@ -22,6 +22,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState(false);
 
   const projectTypes = [
     { value: 'kitchen', label: '🍳 Kitchen Remodel', base: 200 },
@@ -47,6 +48,12 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
   };
 
   const submitToWeb3Forms = async () => {
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setSubmissionError(true);
+      return;
+    }
+
     setSubmitting(true);
     const selectedType = projectTypes.find(t => t.value === details.projectType);
     const estimate = calculateEstimate();
@@ -58,7 +65,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
+          access_key: accessKey,
           subject: `Quote Calculator Estimate - ${selectedType?.label}`,
           project_type: selectedType?.label,
           square_footage: details.squareFootage,
@@ -71,6 +78,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
       setSubmitted(true);
     } catch (error) {
       console.error('Submission error:', error);
+      setSubmissionError(true);
     } finally {
       setSubmitting(false);
     }
@@ -81,10 +89,10 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
   return (
     <div className="bg-gray-900 shadow-2xl p-8 max-w-2xl mx-auto border-2 border-gray-700">
       <h3 className="text-3xl font-heading font-bold text-white mb-2">
-        Project Cost Calculator
+        Project Planning Estimator
       </h3>
       <p className="text-gray-100 font-medium mb-8">
-        Get an instant estimate for your construction project
+        A quick planning estimate for your project — not a bid. We confirm real numbers after a site visit.
       </p>
 
       {/* Progress Bar */}
@@ -96,7 +104,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
               className={`flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all ${
                 step >= s
                   ? 'bg-construction-primary text-white shadow-lg'
-                  : 'bg-gray-700 text-gray-400'
+                  : 'bg-gray-700 text-white/40'
               }`}
             >
               {s}
@@ -297,7 +305,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
               </svg>
             </div>
             <h4 className="text-2xl font-bold text-white mb-2">
-              Your Estimated Project Cost
+              Your Planning Estimate
             </h4>
             <p className="text-gray-100 font-medium">
               Based on {details.squareFootage} sq ft
@@ -323,7 +331,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
             </motion.div>
           ) : (
             <p className="text-sm text-gray-100 font-medium mb-6">
-              This is a rough estimate. Want a detailed quote? Submit this estimate and we'll contact you.
+              This is a planning estimate, not a bid. Want a detailed quote? Submit this estimate and we'll follow up after a site visit.
             </p>
           )}
 
@@ -332,13 +340,21 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
               onClick={() => {
                 setStep(1);
                 setSubmitted(false);
+                setSubmissionError(false);
                 setDetails({ projectType: '', squareFootage: '', timeline: '', budget: '' });
               }}
               className="flex-1 px-6 py-3 border-2 border-gray-500 text-white rounded-lg font-semibold hover:border-construction-primary hover:bg-construction-primary/10"
             >
               Start Over
             </button>
-            {!submitted ? (
+            {submissionError ? (
+              <a
+                href="tel:+18283352845"
+                className="flex-1 px-6 py-3 bg-construction-accent text-construction-dark rounded-lg font-semibold hover:bg-white shadow-xl text-center"
+              >
+                Call (828) 335-2845
+              </a>
+            ) : !submitted ? (
               <button
                 onClick={() => submitToWeb3Forms()}
                 disabled={submitting}
