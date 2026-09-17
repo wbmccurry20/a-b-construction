@@ -33,7 +33,7 @@ export default function Navbar({ client }: NavbarProps) {
     <motion.nav
       initial={shouldReduceMotion ? false : { y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-8 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-construction-light/95 backdrop-blur-md shadow-lg border-b border-construction-dark/10'
           : 'bg-transparent'
