@@ -4,108 +4,18 @@ import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import Footer from '../components/Footer';
+import { site, projects, portfolioCategories } from '../data/site';
 
 const pageTitle = "Portfolio | A&B Construction Projects in Western NC";
-const pageDescription = "Browse completed custom homes, renovations, and additions by A&B Construction across Burnsville, Spruce Pine, Micaville, Bakersville, and Yancey and Mitchell counties.";
+const pageDescription = "Selected residential and commercial projects by A&B Construction across Western North Carolina — custom homes, renovations, commercial facilities, specialty builds, and subcontracted work.";
 
-const projects = [
-	{
-		id: 1,
-		title: 'Cane River Residence',
-		location: 'Burnsville, NC',
-		category: 'New Construction',
-		year: '2023',
-		sqft: '2,640 sq ft',
-		image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
-		description: 'A new custom home set on a sloping river lot, planned around access, grade, and long mountain views.',
-		features: ['Custom floor plan', 'Full-depth porches', 'Site-specific foundation', 'Energy-efficient envelope'],
-	},
-	{
-		id: 2,
-		title: 'Town Center Craftsman',
-		location: 'Burnsville, NC',
-		category: 'Renovation',
-		year: '2024',
-		sqft: '1,820 sq ft',
-		image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
-		description: 'A whole-home renovation on a tight in-town lot, updating systems and finishes while keeping the original character.',
-		features: ['Updated electrical & plumbing', 'Restored trim details', 'New kitchen', 'Refinished floors'],
-	},
-	{
-		id: 3,
-		title: 'Bowlens Creek Addition',
-		location: 'Yancey County, NC',
-		category: 'Addition',
-		year: '2022',
-		sqft: '980 sq ft added',
-		image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80',
-		description: 'A rear addition that added living space and a primary suite while matching the existing home line for line.',
-		features: ['Primary suite', 'Expanded living room', 'Matched rooflines', 'New rear deck'],
-	},
-	{
-		id: 4,
-		title: 'Micaville Farmhouse',
-		location: 'Micaville, NC',
-		category: 'New Construction',
-		year: '2021',
-		sqft: '3,100 sq ft',
-		image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80',
-		description: 'A new farmhouse-style home with wide porches, standing-seam metal roofing, and durable mountain-climate detailing.',
-		features: ['Metal roofing', 'Wraparound porch', 'Open main level', 'Mudroom & pantry'],
-	},
-	{
-		id: 5,
-		title: 'Spruce Pine Kitchen & Bath',
-		location: 'Spruce Pine, NC',
-		category: 'Renovation',
-		year: '2024',
-		sqft: '410 sq ft',
-		image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80',
-		description: 'A focused kitchen and bath renovation done as a single, coordinated job to limit disruption.',
-		features: ['New cabinetry', 'Tile & stone', 'Updated fixtures', 'Improved layout'],
-	},
-	{
-		id: 6,
-		title: 'South Toe Porch & Outdoor Kitchen',
-		location: 'Yancey County, NC',
-		category: 'Outdoor',
-		year: '2023',
-		sqft: '720 sq ft',
-		image: 'https://images.unsplash.com/photo-1600585153490-76fb20a32601?auto=format&fit=crop&w=1400&q=80',
-		description: 'A covered porch and outdoor kitchen built for four-season use and easy maintenance.',
-		features: ['Covered porch', 'Outdoor kitchen', 'Stone hearth', 'Weather-rated finishes'],
-	},
-	{
-		id: 7,
-		title: 'Bakersville Ridge House',
-		location: 'Bakersville, NC',
-		category: 'New Construction',
-		year: '2020',
-		sqft: '2,280 sq ft',
-		image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=1400&q=80',
-		description: 'A new home on a steep ridge lot, engineered for the grade with clear numbers set before the contract.',
-		features: ['Engineered foundation', 'Ridge-line siting', 'Efficient HVAC', 'Large glazing for views'],
-	},
-	{
-		id: 8,
-		title: 'Parkway Ranch Remodel',
-		location: 'Mitchell County, NC',
-		category: 'Renovation',
-		year: '2022',
-		sqft: '1,960 sq ft',
-		image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1400&q=80',
-		description: 'A 1970s ranch reworked as one job — kitchen, roof, and a reworked rear living room brought together.',
-		features: ['New roof', 'Opened floor plan', 'Rear living room', 'Updated kitchen'],
-	},
-];
-
-const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoor'];
+const categories = ['All', ...portfolioCategories];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 
-	<!-- Hero (AC5) -->
+	<!-- Hero -->
 	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
 		<svg
 			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
@@ -129,35 +39,20 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						Portfolio
 					</h1>
 					<p class="text-xl text-white/60 max-w-xl">
-						Explore our completed projects across Western North Carolina.
-						From custom homes to complete renovations, see the quality and craftsmanship we deliver.
+						Selected residential and commercial projects across {site.serviceArea} —
+						from custom homes to commercial facilities and subcontracted builds.
 					</p>
 				</div>
 			</FadeInSection>
 		</div>
 	</section>
 
-	<!-- Stats Band (AC7 — bg-construction-primary, 4-column) -->
-	<section class="bg-construction-primary py-12">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-				<div>
-					<div class="font-heading text-4xl md:text-5xl font-semibold">160+</div>
-					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Projects Completed</div>
-				</div>
-				<div>
-					<div class="font-heading text-4xl md:text-5xl font-semibold">20+</div>
-					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Years in Business</div>
-				</div>
-				<div>
-					<div class="font-heading text-4xl md:text-5xl font-semibold">4.9/5</div>
-					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Client Satisfaction</div>
-				</div>
-				<div>
-					<div class="font-heading text-4xl md:text-5xl font-semibold">9</div>
-					<div class="font-heading text-xs uppercase tracking-widest mt-1 text-white/70">Counties Served</div>
-				</div>
-			</div>
+	<!-- Preview note -->
+	<section class="bg-construction-accent/15 border-b border-construction-accent/30">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+			<p class="text-sm text-construction-dark text-center">
+				Project write-ups and photo galleries are being added. Imagery shown is representative while we prepare real project photos.
+			</p>
 		</div>
 	</section>
 
@@ -178,7 +73,7 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 		</div>
 	</section>
 
-	<!-- Projects Grid (AC7 — full-bleed image cards) -->
+	<!-- Projects Grid -->
 	<section class="py-20 bg-construction-dark">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -187,22 +82,22 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						<div data-project-category={project.category} class="group relative aspect-[4/3] overflow-hidden">
 							<img
 								src={project.image}
-								alt={project.title}
+								alt={`${project.title} — ${project.location}`}
 								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-construction-dark/90 via-construction-dark/20 to-transparent"></div>
-							<!-- Category tag -->
 							<div class="absolute top-4 right-4">
 								<span class="px-3 py-1 bg-construction-accent text-construction-dark font-heading text-xs uppercase tracking-wide">
 									{project.category}
 								</span>
 							</div>
-							<!-- Title overlay — slides up on hover -->
 							<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-								<p class="font-heading text-xs uppercase tracking-widest text-construction-accent mb-1">{project.location} · {project.year}</p>
+								<p class="font-heading text-xs uppercase tracking-widest text-construction-accent mb-1">{project.location}</p>
 								<h3 class="font-heading text-2xl font-bold text-white">{project.title}</h3>
-								<div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-300 mt-2">
-									<p class="text-white/70 text-sm">{project.sqft}</p>
+								<div class="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-300 mt-2">
+									<p class="text-white/70 text-sm">
+										{project.summaryTodo ? 'Project write-up coming soon.' : project.summary}
+									</p>
 								</div>
 							</div>
 						</div>
@@ -235,7 +130,7 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 		});
 	</script>
 
-	<!-- Before/After Section (AC7 — dark bg, overline captions) -->
+	<!-- Before/After Section -->
 	<section class="py-20 bg-construction-dark border-t border-white/10">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
@@ -245,47 +140,33 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						See the Difference
 					</h2>
 					<p class="text-xl text-white/60 mt-4">
-						Dramatic before and after results from our renovation work
+						Drag to compare — a look at the kind of renovation work we take on.
 					</p>
 				</div>
 			</FadeInSection>
 
-			<div class="space-y-16">
-				<FadeInSection client:load delay={0.2}>
-					<div>
-						<p class="font-heading text-sm uppercase tracking-widest text-white/50 mb-4">Parkway Ranch Remodel — Mitchell County, NC</p>
-						<BeforeAfterSlider
-							client:load
-							beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
-							afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
-							beforeAlt="1970s ranch home before remodel by A&B Construction"
-							afterAlt="Remodeled ranch home with opened floor plan by A&B Construction"
-						/>
-					</div>
-				</FadeInSection>
-
-				<FadeInSection client:load delay={0.3}>
-					<div>
-						<p class="font-heading text-sm uppercase tracking-widest text-white/50 mb-4">Spruce Pine Kitchen & Bath — Spruce Pine, NC</p>
-						<BeforeAfterSlider
-							client:load
-							beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
-							afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
-							beforeAlt="Kitchen before renovation by A&B Construction"
-							afterAlt="Kitchen after renovation by A&B Construction"
-						/>
-					</div>
-				</FadeInSection>
-			</div>
+			<FadeInSection client:load delay={0.2}>
+				<div>
+					<p class="font-heading text-sm uppercase tracking-widest text-white/50 mb-4">Renovation — Before &amp; After</p>
+					<BeforeAfterSlider
+						client:load
+						beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
+						afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
+						beforeAlt="Interior before renovation — representative example"
+						afterAlt="Interior after renovation — representative example"
+					/>
+					<p class="text-xs text-white/40 mt-3 italic">Representative imagery — real project photos coming soon.</p>
+				</div>
+			</FadeInSection>
 		</div>
 	</section>
 
-	<!-- Tagline Band (AC7) -->
+	<!-- Tagline Band -->
 	<section class="py-20 bg-construction-dark border-t border-white/10 text-center">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<h2 class="font-heading text-5xl md:text-6xl font-bold text-white mb-4">
-					Every Home Tells a Story.
+					Every project tells a story.
 				</h2>
 				<p class="font-heading text-3xl md:text-4xl font-bold text-white/40 mb-12">
 					Yours is next.

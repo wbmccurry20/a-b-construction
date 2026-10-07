@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
+import { site } from '../data/site';
 
 const pageTitle = "How We Build | A&B Construction";
 const pageDescription = "Our straightforward construction process — from first call to move-in day. No surprises, no runaround. Just honest work in Western NC.";
@@ -65,7 +66,7 @@ const faqs = [
 	},
 	{
 		question: 'What warranty do you provide?',
-		answer: "We provide a written 2-year workmanship warranty on completed work. Structural elements follow North Carolina's statutory warranties. Manufacturer warranties on materials (windows, roofing, HVAC) are passed through to you at closing.",
+		answer: "Warranty terms are spelled out in your written agreement. Structural elements follow North Carolina's statutory warranties, and manufacturer warranties on materials (windows, roofing, HVAC) are passed through to you.",
 	},
 ];
 ---
@@ -207,17 +208,21 @@ const faqs = [
 					The first conversation is free and there's no obligation.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="tel:+18283352845"
-						class="px-10 py-5 bg-construction-primary text-white font-heading text-xl uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark transition-all"
-					>
-						Call (828) 335-2845
-					</a>
+					{site.contact.phone && (
+						<a
+							href={site.contact.phoneHref}
+							class="px-10 py-5 bg-construction-primary text-white font-heading text-xl uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark transition-all"
+						>
+							Call {site.contact.phone}
+						</a>
+					)}
 					<a
 						href="/contact"
-						class="px-10 py-5 border border-white/20 text-white font-heading text-xl uppercase tracking-wider hover:border-white/60 transition-all"
+						class={site.contact.phone
+							? "px-10 py-5 border border-white/20 text-white font-heading text-xl uppercase tracking-wider hover:border-white/60 transition-all"
+							: "px-10 py-5 bg-construction-primary text-white font-heading text-xl uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark transition-all"}
 					>
-						Or send us a message →
+						{site.contact.phone ? 'Or send us a message →' : 'Start the conversation →'}
 					</a>
 				</div>
 			</FadeInSection>

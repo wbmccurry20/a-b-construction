@@ -57,7 +57,7 @@ export default function QuickContact() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               required
-              placeholder="(828) 335-2845"
+              placeholder="(828) 555-0123"
               className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary placeholder:text-construction-stone font-medium shadow-md"
             />
           </div>

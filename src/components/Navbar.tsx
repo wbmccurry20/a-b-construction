@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { navLinks, site } from '../data/site';
 
 interface NavbarProps {
   client?: string;
@@ -19,15 +20,8 @@ export default function Navbar({ client }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'About', href: '/about' },
-    { name: 'Process', href: '/process' },
-    { name: 'Field Notes', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  const phone = site.contact.phone;
+  const phoneHref = site.contact.phoneHref;
 
   return (
     <motion.nav
@@ -77,26 +71,28 @@ export default function Navbar({ client }: NavbarProps) {
             ))}
             
             {/* Phone CTA */}
-            <a
-              href="tel:+18283352845"
-              className={`ml-2 px-4 py-2 font-semibold transition-all flex items-center gap-2 ${
-                isScrolled
-                  ? 'text-construction-primary hover:bg-construction-primary/10'
-                  : 'text-white hover:bg-white/10'
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              (828) 335-2845
-            </a>
+            {phone && (
+              <a
+                href={phoneHref}
+                className={`ml-2 px-4 py-2 font-semibold transition-all flex items-center gap-2 ${
+                  isScrolled
+                    ? 'text-construction-primary hover:bg-construction-primary/10'
+                    : 'text-white hover:bg-white/10'
+                }`}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {phone}
+              </a>
+            )}
 
             {/* Get Quote Button */}
             <a
               href="/contact"
               className="ml-2 px-5 py-3 bg-construction-primary text-white font-heading font-semibold uppercase tracking-[0.12em] text-xs hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all"
             >
-              Get Free Quote
+              Get a Quote
             </a>
           </div>
 
@@ -156,15 +152,17 @@ export default function Navbar({ client }: NavbarProps) {
             ))}
             
             {/* Mobile Phone */}
-            <a
-              href="tel:+18283352845"
-              className="block px-4 py-3 text-construction-primary font-semibold flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              (828) 335-2845
-            </a>
+            {phone && (
+              <a
+                href={phoneHref}
+                className="block px-4 py-3 text-construction-primary font-semibold flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                {phone}
+              </a>
+            )}
 
             {/* Mobile Get Quote */}
             <a
@@ -172,7 +170,7 @@ export default function Navbar({ client }: NavbarProps) {
               className="block mx-4 mt-4 px-6 py-3 bg-construction-primary text-white font-heading font-semibold uppercase tracking-wider text-center hover:bg-construction-accent hover:text-construction-dark transition-all"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Get Free Quote
+              Get a Quote
             </a>
           </motion.div>
         )}
