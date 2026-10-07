@@ -6,188 +6,139 @@ import QuoteCalculator from '../components/QuoteCalculator';
 import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import QuickContact from '../components/QuickContact';
 import Footer from '../components/Footer';
+import {
+	site,
+	serviceCategories,
+	operatingModel,
+	projects,
+	aboutCopy,
+	placeholderImages,
+} from '../data/site';
 
-const pageTitle = "A&B Construction | Custom Homes & Renovations in Burnsville, NC";
-const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Construction builds and renovates residential homes in Burnsville and the surrounding mountains of Western North Carolina.";
+const pageTitle = "A&B Construction | Residential & Commercial Builders in Western NC";
+const pageDescription = "A&B Construction is a full-service residential and commercial construction firm in Western North Carolina — custom homes, renovations, commercial builds, and specialty projects.";
+
+const featuredProjects = projects.slice(0, 6);
+const operatingHighlights = operatingModel.filter((item) => item.body);
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 
-	<!-- Hero Section -->
-	<section class="relative min-h-screen flex items-center overflow-hidden bg-construction-dark">
-		<svg
-			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
-			viewBox="0 0 400 600"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<ellipse cx="200" cy="300" rx="380" ry="260" stroke="white" stroke-width="1.5"/>
-			<ellipse cx="200" cy="300" rx="320" ry="210" stroke="white" stroke-width="1.5"/>
-			<ellipse cx="200" cy="300" rx="260" ry="165" stroke="white" stroke-width="1.5"/>
-			<ellipse cx="200" cy="300" rx="200" ry="120" stroke="white" stroke-width="1.5"/>
-			<ellipse cx="200" cy="300" rx="140" ry="80" stroke="white" stroke-width="1.5"/>
-			<ellipse cx="200" cy="300" rx="80" ry="45" stroke="white" stroke-width="1.5"/>
-		</svg>
-		<div class="absolute inset-0 opacity-5 pointer-events-none">
-			<div class="absolute top-0 left-0 w-96 h-96 bg-construction-primary rounded-full filter blur-3xl"></div>
-			<div class="absolute bottom-0 right-0 w-96 h-96 bg-construction-accent rounded-full filter blur-3xl"></div>
-		</div>
-		<div class="absolute inset-0">
-			<img
-				src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
-				alt="Custom mountain home built by A&B Construction in Western North Carolina"
-				class="w-full h-full object-cover object-center"
-				loading="eager"
-			/>
-		</div>
-		<div class="absolute inset-0 bg-gradient-to-r from-construction-dark via-construction-dark/85 to-construction-dark/30"></div>
-
-		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
-				<div>
+	<!-- Hero: brand intro + Residential | Commercial split -->
+	<section class="bg-construction-dark pt-32 pb-0">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="max-w-3xl mb-10">
 					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-4">
-						Burnsville, North Carolina
+						{site.serviceArea}
 					</p>
-					<h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-semibold text-white leading-[1.05] mb-8">
-						Custom homes and<br/>renovations in the <span class="text-construction-accent italic">Blue Ridge.</span>
+					<h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+						Residential &amp; commercial construction,<br class="hidden md:block" />
+						<span class="text-construction-accent italic">built for the mountains.</span>
 					</h1>
-					<p class="text-xl text-white/70 mb-10 max-w-md">
-						Residential construction for Burnsville and the surrounding mountains of Western North Carolina.
+					<p class="text-xl text-white/70 max-w-2xl">
+						{site.tagline} Choose your path below.
 					</p>
-					<a
-						href="/contact"
-						class="inline-flex items-center px-8 py-4 bg-construction-dark text-white font-heading text-lg tracking-wide hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
-					>
-						Start Your Project
-						<svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-						</svg>
-					</a>
 				</div>
-
-				<div class="hidden lg:flex flex-col space-y-8 pl-12 border-l border-white/10">
-					<div>
-						<span class="font-heading text-5xl font-semibold text-white">20+</span>
-						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Years Building</p>
-					</div>
-					<div>
-						<span class="font-heading text-5xl font-semibold text-white">160+</span>
-						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Projects Completed</p>
-					</div>
-					<div>
-						<span class="font-heading text-5xl font-semibold text-construction-accent">4.9/5</span>
-						<p class="text-white/50 font-heading text-sm uppercase tracking-widest mt-1">Client Satisfaction</p>
-					</div>
-				</div>
-			</div>
+			</FadeInSection>
 		</div>
 
-		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-			<div class="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
-				<div class="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce"></div>
-			</div>
+		<!-- Split panels (MBI-style) -->
+		<div class="grid md:grid-cols-2">
+			{[
+				{ label: 'Residential', href: '/residential', image: placeholderImages.residentialHero, blurb: 'Custom homes, renovations, additions & specialty builds.' },
+				{ label: 'Commercial', href: '/commercial', image: placeholderImages.commercialHero, blurb: 'Light commercial, traveling builds & subcontracted work.' },
+			].map((panel) => (
+				<a
+					href={panel.href}
+					class="group relative block h-[420px] md:h-[560px] overflow-hidden"
+					aria-label={`${panel.label} construction`}
+				>
+					<img
+						src={panel.image}
+						alt={`${panel.label} construction by ${site.name}`}
+						class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+						loading="eager"
+					/>
+					<div class="absolute inset-0 bg-construction-dark/55 group-hover:bg-construction-dark/40 transition-colors"></div>
+					<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+						<h2 class="font-heading text-5xl md:text-6xl font-bold text-white drop-shadow-lg mb-3">
+							{panel.label}
+						</h2>
+						<p class="text-white/85 max-w-xs mb-6">{panel.blurb}</p>
+						<span class="inline-flex items-center px-6 py-3 border border-white/70 text-white font-heading uppercase tracking-[0.12em] text-xs group-hover:bg-construction-accent group-hover:text-construction-dark group-hover:border-construction-accent transition-all">
+							Explore {panel.label}
+							<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+							</svg>
+						</span>
+					</div>
+				</a>
+			))}
 		</div>
 	</section>
 
-	<!-- Mobile Stats -->
-	<section class="lg:hidden bg-construction-dark py-12 border-t border-white/10">
-		<div class="max-w-7xl mx-auto px-4 grid grid-cols-3 gap-8 text-center">
-			<div>
-				<span class="font-heading text-4xl font-semibold text-white">20+</span>
-				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Years</p>
-			</div>
-			<div>
-				<span class="font-heading text-4xl font-semibold text-white">160+</span>
-				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Projects</p>
-			</div>
-			<div>
-				<span class="font-heading text-3xl font-semibold text-construction-accent">4.9/5</span>
-				<p class="text-white/50 font-heading text-xs uppercase tracking-widest mt-1">Rated</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Why Choose Us -->
+	<!-- About intro -->
 	<section class="py-20 bg-construction-light">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-12 items-start">
+				<FadeInSection client:load>
+					<div>
+						<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Who We Are</p>
+						<h2 class="font-heading text-4xl md:text-5xl font-bold text-construction-dark mb-6">
+							A locally owned, full-service builder
+						</h2>
+						<a href="/about" class="inline-flex items-center text-construction-primary font-heading uppercase tracking-wider text-sm hover:text-construction-accent transition-colors">
+							More about A&B
+							<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+				</FadeInSection>
+				<FadeInSection client:load delay={0.15}>
+					<div class="space-y-4 text-gray-700 text-lg">
+						{aboutCopy.map((para) => (<p>{para}</p>))}
+					</div>
+				</FadeInSection>
+			</div>
+		</div>
+	</section>
+
+	<!-- What We Do -->
+	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-16">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Why A&B</p>
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">What We Do</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Why Choose Us
+						Our Services
 					</h2>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-3 gap-8">
-				{[
-					{
-						step: '01',
-						title: 'A Limited Number of Projects',
-						description: "We take on a limited number of residential projects each year so detailing, schedule, and site conditions get real attention from start to finish.",
-					},
-					{
-						step: '02',
-						title: 'Built for the Mountains',
-						description: "Mountain lots, existing foundations, and four-season weather are normal conditions for our crews — not exceptions. We plan for the terrain from day one.",
-					},
-					{
-						step: '03',
-						title: 'Clear from the Start',
-						description: 'You get honest numbers before you sign, a single project manager through the build, and a 2-year workmanship warranty on completed work.',
-					},
-				].map((feature, index) => (
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+				{serviceCategories.map((service, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white p-8 border-t-4 border-construction-primary hover:shadow-xl transition-shadow">
-							<div class="text-3xl font-heading font-bold text-construction-primary/20 mb-4">{feature.step}</div>
-							<h3 class="text-xl font-heading font-bold text-construction-dark mb-3">
-								{feature.title}
+						<a
+							href={`/${service.division}`}
+							class="block h-full p-6 bg-construction-light border-t-4 border-construction-primary hover:shadow-xl transition-shadow group"
+						>
+							<p class="font-heading text-xs uppercase tracking-widest text-construction-stone mb-2">{service.division}</p>
+							<h3 class="text-xl font-heading font-bold mb-3 text-construction-dark group-hover:text-construction-primary transition-colors">
+								{service.title}
 							</h3>
-							<p class="text-gray-700">
-								{feature.description}
-							</p>
-						</div>
+							<ul class="space-y-1.5 text-sm text-gray-700">
+								{service.items.map((item) => (
+									<li class="flex items-start">
+										<span class="text-construction-primary mr-2">›</span>{item}
+									</li>
+								))}
+							</ul>
+						</a>
 					</FadeInSection>
 				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- Before/After Showcase -->
-	<section class="py-20 bg-construction-dark text-white">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="mb-12">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-3">Transformations</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-white">
-						Our Work
-					</h2>
-				</div>
-			</FadeInSection>
-
-			<FadeInSection client:load delay={0.2}>
-				<p class="font-heading text-sm uppercase tracking-widest text-white/50 mb-4">Spruce Pine, NC — Kitchen & Bath Renovation</p>
-				<BeforeAfterSlider
-					client:load
-					beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
-					afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
-					beforeAlt="Dated 1970s kitchen before renovation by A&B Construction"
-					afterAlt="Renovated kitchen with new cabinetry and finishes by A&B Construction"
-				/>
-			</FadeInSection>
-
-			<div class="mt-12">
-				<a
-					href="/portfolio"
-					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
-				>
-					View Full Portfolio
-					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-					</svg>
-				</a>
 			</div>
 		</div>
 	</section>
@@ -196,43 +147,37 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 	<section class="py-20 bg-construction-dark border-t border-white/5">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="mb-12">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-3">Our Portfolio</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-white">
-						Featured Projects
-					</h2>
+				<div class="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+					<div>
+						<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-3">Our Portfolio</p>
+						<h2 class="font-heading text-5xl md:text-6xl font-bold text-white">
+							Featured Projects
+						</h2>
+					</div>
+					<a href="/portfolio" class="inline-flex items-center text-construction-accent font-heading uppercase tracking-wider text-sm hover:text-white transition-colors">
+						View full portfolio
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+						</svg>
+					</a>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-3 gap-6">
-				{[
-					{
-						title: 'Cane River Residence',
-						category: 'New Construction',
-						image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
-					},
-					{
-						title: 'Town Center Craftsman',
-						category: 'Renovation',
-						image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
-					},
-					{
-						title: 'Bowlens Creek Addition',
-						category: 'Addition',
-						image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80',
-					},
-				].map((project, index) => (
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{featuredProjects.map((project, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
 						<a href="/portfolio" class="group block relative aspect-[4/3] overflow-hidden">
 							<img
 								src={project.image}
-								alt={project.title}
+								alt={`${project.title} — ${project.location}`}
 								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+								loading="lazy"
 							/>
 							<div class="absolute inset-0 bg-gradient-to-t from-construction-dark/90 to-transparent"></div>
 							<div class="absolute bottom-0 left-0 p-6">
 								<p class="font-heading text-xs uppercase tracking-widest text-construction-accent mb-1">{project.category}</p>
 								<h3 class="font-heading text-xl font-bold text-white">{project.title}</h3>
+								<p class="text-white/70 text-sm">{project.location}</p>
 							</div>
 						</a>
 					</FadeInSection>
@@ -241,47 +186,51 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 		</div>
 	</section>
 
-	<!-- Testimonials -->
+	<!-- Before/After Showcase -->
+	<section class="py-20 bg-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="mb-8">
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Transformations</p>
+					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
+						Before &amp; After
+					</h2>
+					<p class="text-gray-700 mt-4 max-w-2xl">Drag to compare. A look at the kind of renovation work we take on.</p>
+				</div>
+			</FadeInSection>
+
+			<FadeInSection client:load delay={0.2}>
+				<BeforeAfterSlider
+					client:load
+					beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
+					afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
+					beforeAlt="Kitchen before renovation — representative example"
+					afterAlt="Kitchen after renovation — representative example"
+				/>
+				<p class="text-xs text-construction-stone mt-3 italic">Representative imagery — real project photos coming soon.</p>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- How We Operate -->
 	<section class="py-20 bg-construction-light">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="mb-12">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">What Owners Say</p>
+				<div class="mb-16">
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">How We Operate</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Trusted Across the Mountains
+						A dependable way to build
 					</h2>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-3 gap-6">
-				{[
-					{
-						quote: 'They treated a tight Burnsville lot like it mattered. Schedule held and the finish work is what we still notice.',
-						attribution: 'The Callaway family',
-						detail: 'Burnsville addition',
-					},
-					{
-						quote: 'Our 1970s ranch needed a real plan, not a patch list. Kitchen, roof, and rear living room were done as one job.',
-						attribution: 'J. Whitaker',
-						detail: 'Spruce Pine renovation',
-					},
-					{
-						quote: 'Clear numbers before we signed. No surprise extras on a steep site in Yancey County.',
-						attribution: 'The Nguyen residence',
-						detail: 'New home',
-					},
-				].map((testimonial, index) => (
+			<div class="grid md:grid-cols-3 gap-8">
+				{operatingHighlights.map((item, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<figure class="bg-white p-8 border-t-4 border-construction-accent h-full flex flex-col">
-							<div class="text-construction-accent text-5xl font-heading leading-none mb-4" aria-hidden="true">&ldquo;</div>
-							<blockquote class="text-construction-dark text-lg leading-relaxed flex-1">
-								{testimonial.quote}
-							</blockquote>
-							<figcaption class="mt-6 pt-4 border-t border-construction-dark/10">
-								<div class="font-heading font-bold text-construction-dark">{testimonial.attribution}</div>
-								<div class="text-sm text-construction-stone uppercase tracking-wide">{testimonial.detail}</div>
-							</figcaption>
-						</figure>
+						<div class="bg-white p-8 border-l-4 border-construction-primary h-full shadow-md">
+							<h3 class="font-heading text-xl font-bold text-construction-dark mb-3">{item.title}</h3>
+							<p class="text-gray-700 leading-relaxed">{item.body}</p>
+						</div>
 					</FadeInSection>
 				))}
 			</div>
@@ -289,7 +238,7 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 	</section>
 
 	<!-- Get an Estimate -->
-	<section class="py-20 bg-construction-light">
+	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-12">
@@ -318,74 +267,6 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 		</div>
 	</section>
 
-	<!-- Services Overview -->
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="mb-16">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">What We Do</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Our Services
-					</h2>
-				</div>
-			</FadeInSection>
-
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-				{[
-					{
-						title: 'Custom Homes',
-						description: 'Build your dream home from the ground up',
-						link: '/services#new-construction',
-					},
-					{
-						title: 'Renovations',
-						description: 'Transform your existing space',
-						link: '/services#renovations',
-					},
-					{
-						title: 'Additions',
-						description: 'Expand your living space seamlessly',
-						link: '/services#additions',
-					},
-					{
-						title: 'Remodeling',
-						description: 'Kitchen, bath, and interior updates',
-						link: '/services#remodeling',
-					},
-				].map((service, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<a
-							href={service.link}
-							class="block p-6 bg-construction-light border-t-4 border-construction-primary hover:shadow-xl transition-shadow group"
-						>
-							<h3 class="text-xl font-heading font-bold mb-3 text-construction-dark group-hover:text-construction-primary transition-colors">
-								{service.title}
-							</h3>
-							<p class="text-gray-700 mb-4 text-sm">
-								{service.description}
-							</p>
-							<span class="text-construction-primary font-semibold inline-flex items-center text-sm">
-								Learn more
-								<svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</span>
-						</a>
-					</FadeInSection>
-				))}
-			</div>
-
-			<div class="mt-12">
-				<a
-					href="/services"
-					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
-				>
-					View All Services
-				</a>
-			</div>
-		</div>
-	</section>
-
 	<!-- We Serve Western NC -->
 	<section class="py-16 bg-construction-secondary">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -398,8 +279,8 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 						We Serve Western NC
 					</h2>
 					<p class="text-white/70 text-lg max-w-lg">
-						We're not a franchise. Every crew member lives in these mountains.
-						We work where we know the land, the climate, and the community.
+						We're locally owned and work where we know the land, the climate, and the community —
+						with travel capability for commercial clients beyond the region.
 					</p>
 				</div>
 				<div class="grid grid-cols-3 gap-3">
@@ -419,65 +300,22 @@ const pageDescription = "Custom homes and renovations in the Blue Ridge. A&B Con
 		</div>
 	</section>
 
-	<!-- Trust section -->
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="mb-12">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">A better build experience</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Clear from day one
-					</h2>
-					<p class="text-xl text-gray-700 mt-4 max-w-2xl">The details change from home to home. The way we communicate should not.</p>
-				</div>
-			</FadeInSection>
-
-			<div class="grid md:grid-cols-3 gap-8">
-				{[
-					{
-						number: '01',
-						title: 'Straight answers',
-						description: 'We explain what affects scope, cost, and schedule in plain language before work begins.',
-					},
-					{
-						number: '02',
-						title: 'One point of contact',
-						description: 'A dedicated project manager stays reachable throughout the build, so questions never disappear into a handoff.',
-					},
-					{
-						number: '03',
-						title: 'Respect for the place',
-						description: 'We plan around the land, the weather, and the way your home needs to work every day.',
-					},
-				].map((principle, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-construction-light p-8 border-l-4 border-construction-accent hover:shadow-xl transition-shadow">
-							<div class="font-heading text-4xl font-bold text-construction-primary/30 leading-none mb-6">{principle.number}</div>
-							<h3 class="font-heading text-2xl font-bold text-construction-dark mb-3">{principle.title}</h3>
-							<p class="text-gray-700 leading-relaxed">{principle.description}</p>
-						</div>
-					</FadeInSection>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- Tagline Band -->
+	<!-- CTA Band -->
 	<section class="py-24 bg-construction-dark text-center">
 		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<h2 class="font-heading text-5xl md:text-7xl font-bold text-white leading-none mb-8">
-					Your Home.<br/>
-					<span class="text-construction-accent">Your Mountains.</span>
+					Let's build<br/>
+					<span class="text-construction-accent">something solid.</span>
 				</h2>
-				<p class="text-white/50 mt-4 text-xl max-w-xl mx-auto">
-					Built by people who live here, with materials that belong here.
+				<p class="text-white/60 mt-4 text-xl max-w-xl mx-auto mb-10">
+					Residential or commercial — tell us about your project and we'll take it from there.
 				</p>
 				<a
 					href="/contact"
 					class="inline-flex items-center px-10 py-5 bg-construction-primary text-white font-heading text-xl uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
 				>
-					Get Your Free Quote
+					Get a Quote
 				</a>
 			</FadeInSection>
 		</div>

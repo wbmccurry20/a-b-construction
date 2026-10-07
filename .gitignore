@@ -36,3 +36,8 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Internal / sensitive source docs — DO NOT COMMIT (client PII, financials, working drafts)
+docs/*.csv
+docs/*.xlsx
+docs/ab_site_details.pdf

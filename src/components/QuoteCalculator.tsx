@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { site } from '../data/site';
 
 interface QuoteCalculatorProps {
   client?: string;
@@ -349,10 +350,10 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
             </button>
             {submissionError ? (
               <a
-                href="tel:+18283352845"
+                href={site.contact.phoneHref || '/contact'}
                 className="flex-1 px-6 py-3 bg-construction-accent text-construction-dark rounded-lg font-semibold hover:bg-white shadow-xl text-center"
               >
-                Call (828) 335-2845
+                {site.contact.phone ? `Call ${site.contact.phone}` : 'Contact Us'}
               </a>
             ) : !submitted ? (
               <button

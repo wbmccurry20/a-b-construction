@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { site } from '../data/site';
 ---
 
 <Layout title="Privacy Policy | A&B Construction" description="How A&B Construction handles the information you share with us.">
@@ -70,16 +71,24 @@ import Footer from '../components/Footer';
 				<div>
 					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Data Deletion</h2>
 					<p class="text-gray-700 leading-relaxed">
-						To request deletion of any information you submitted through our contact form, email us at <a href="mailto:info@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">info@abconstruction.builders</a>. We will confirm deletion within 14 days.
+						To request deletion of any information you submitted through our contact form, {site.contact.email ? (
+							<Fragment>email us at <a href={`mailto:${site.contact.email}`} class="text-construction-primary underline hover:text-construction-accent">{site.contact.email}</a></Fragment>
+						) : (
+							<Fragment>reach us through our <a href="/contact" class="text-construction-primary underline hover:text-construction-accent">contact page</a></Fragment>
+						)}. We will confirm deletion within 14 days.
 					</p>
 				</div>
 
 				<div>
 					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Contact</h2>
 					<p class="text-gray-700 leading-relaxed">
-						A&B Construction<br />
-						120 W Main Street, Burnsville, NC 28714<br />
-						<a href="mailto:info@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">info@abconstruction.builders</a>
+						{site.name}<br />
+						Serving {site.serviceArea}<br />
+						{site.contact.email ? (
+							<a href={`mailto:${site.contact.email}`} class="text-construction-primary underline hover:text-construction-accent">{site.contact.email}</a>
+						) : (
+							<a href="/contact" class="text-construction-primary underline hover:text-construction-accent">Contact us →</a>
+						)}
 					</p>
 				</div>
 

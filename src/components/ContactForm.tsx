@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { site } from '../data/site';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -139,7 +140,7 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-construction-primary font-medium shadow-md"
-            placeholder="(828) 335-2845"
+            placeholder="(828) 555-0123"
           />
         </div>
       </div>
@@ -230,8 +231,8 @@ export default function ContactForm() {
       {(status === 'error' || status === 'missing-key') && (
         <div className="p-4 bg-red-50 border border-red-200 text-red-700">
           {status === 'missing-key'
-            ? 'Online submissions are being set up. Please call (828) 335-2845 or email info@abconstruction.builders and we\'ll get right back to you.'
-            : 'Something went wrong. Please try again or call us at (828) 335-2845.'}
+            ? `Online submissions are being set up.${site.contact.phone ? ` Please call ${site.contact.phone}` : ' Please reach us through our contact page'}${site.contact.email ? ` or email ${site.contact.email}` : ''} and we'll get right back to you.`
+            : `Something went wrong. Please try again${site.contact.phone ? ` or call us at ${site.contact.phone}` : ''}.`}
         </div>
       )}
 
@@ -250,7 +251,7 @@ export default function ContactForm() {
             Sending...
           </span>
         ) : (
-          'Get Your Free Quote'
+          'Send Request'
         )}
       </button>
 

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { site } from '../data/site';
 ---
 
 <Layout title="Terms of Service | A&B Construction" description="Terms governing use of the A&B Construction website.">
@@ -70,7 +71,11 @@ import Footer from '../components/Footer';
 				<div>
 					<h2 class="font-heading text-2xl font-bold text-construction-dark mb-4">Contact</h2>
 					<p class="text-gray-700 leading-relaxed">
-						Questions about these terms? Email <a href="mailto:info@abconstruction.builders" class="text-construction-primary underline hover:text-construction-accent">info@abconstruction.builders</a>.
+						Questions about these terms? {site.contact.email ? (
+							<Fragment>Email <a href={`mailto:${site.contact.email}`} class="text-construction-primary underline hover:text-construction-accent">{site.contact.email}</a>.</Fragment>
+						) : (
+							<Fragment>Reach us through our <a href="/contact" class="text-construction-primary underline hover:text-construction-accent">contact page</a>.</Fragment>
+						)}
 					</p>
 				</div>
 

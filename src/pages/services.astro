@@ -3,96 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
+import { serviceCategories, operatingModel } from '../data/site';
 
-const pageTitle = "Construction Services | A&B Construction WNC";
-const pageDescription = "Custom homes, renovations, additions, and remodeling services from A&B Construction. Serving Western North Carolina.";
+const pageTitle = "Services | A&B Construction — Residential & Commercial, Western NC";
+const pageDescription = "Full-service construction from A&B Construction: residential custom homes, renovations and additions, commercial facilities, and specialty projects across Western North Carolina.";
 
-const services = [
-	{
-		id: 'new-construction',
-		title: 'New Construction',
-		tagline: 'Custom homes built to your vision',
-		description: 'Build your dream home from the ground up with our comprehensive new construction services. We handle everything from initial design consultation to final walkthrough.',
-		features: [
-			'Custom architectural design',
-			'Foundation to finish management',
-			'Energy-efficient systems',
-			'Local material sourcing',
-		],
-		image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
-		accent: 'construction-primary',
-	},
-	{
-		id: 'renovations',
-		title: 'Renovations',
-		tagline: 'Transform your existing space',
-		description: 'Breathe new life into your existing home with our expert renovation services. We specialize in whole-home renovations, historic restorations, and targeted updates.',
-		features: [
-			'Whole-home renovations',
-			'Historic restoration',
-			'Structural improvements',
-			'Systems upgrades',
-			'Cosmetic updates',
-			'Energy efficiency upgrades',
-		],
-		image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
-		accent: 'construction-secondary',
-	},
-	{
-		id: 'additions',
-		title: 'Additions',
-		tagline: 'Expand your living space',
-		description: "When your family grows or your needs change, our addition services seamlessly expand your home's footprint while matching your existing architecture.",
-		features: [
-			'Second-story additions',
-			'Master suite additions',
-			'In-law suites',
-			'Home office additions',
-			'Sunrooms & four-season rooms',
-			'Garage additions',
-		],
-		image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80',
-		accent: 'construction-secondary',
-	},
-	{
-		id: 'remodeling',
-		title: 'Remodeling',
-		tagline: 'Kitchen, bath, and beyond',
-		description: 'Targeted remodeling services that transform your most-used spaces. From kitchen and bathroom remodels to basement finishing and custom built-ins.',
-		features: [
-			'Kitchen remodeling',
-			'Bathroom remodeling',
-			'Basement finishing',
-			'Custom cabinetry',
-			'Flooring installation',
-			'Interior design services',
-		],
-		image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80',
-		accent: 'construction-primary',
-	},
-	{
-		id: 'outdoor',
-		title: 'Outdoor Living',
-		tagline: 'Extend your home outdoors',
-		description: 'Create stunning outdoor spaces that blend with our mountain landscape. Decks, patios, outdoor kitchens, and more.',
-		features: [
-			'Decks & porches',
-			'Patios & outdoor kitchens',
-			'Fire pits & hardscaping',
-			'Retaining walls',
-			'Landscape integration',
-			'Outdoor lighting',
-		],
-		image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=80',
-		accent: 'construction-stone',
-	},
-];
+const operatingHighlights = operatingModel.filter((item) => item.body);
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 
-	<!-- Hero (AC5) -->
+	<!-- Hero -->
 	<section class="pt-32 pb-20 bg-construction-dark relative overflow-hidden">
 		<svg
 			class="absolute right-0 top-0 h-full w-auto opacity-[0.04] pointer-events-none"
@@ -116,15 +38,39 @@ const services = [
 						What We Build
 					</h1>
 					<p class="text-xl text-white/60 max-w-xl">
-						Comprehensive construction services for every stage of your home — from the ground up or from where you are now.
+						Full-service residential and commercial construction — from custom homes and
+						renovations to commercial facilities and specialty projects.
 					</p>
 				</div>
 			</FadeInSection>
 		</div>
 	</section>
 
-	<!-- Services Grid (AC2 — border-t-4, no rounding, no hover:scale) -->
-	<section class="py-20 bg-construction-light">
+	<!-- Division shortcuts -->
+	<section class="py-16 bg-construction-light">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid md:grid-cols-2 gap-6">
+				{[
+					{ label: 'Residential', href: '/residential', blurb: 'Custom homes, renovations, additions, and specialty residential builds.' },
+					{ label: 'Commercial', href: '/commercial', blurb: 'Light commercial facilities, traveling builds, and subcontracted work.' },
+				].map((d) => (
+					<a href={d.href} class="group block bg-construction-dark p-8 hover:bg-black transition-colors">
+						<h2 class="font-heading text-3xl font-bold text-white mb-2 group-hover:text-construction-accent transition-colors">{d.label}</h2>
+						<p class="text-white/70 mb-4">{d.blurb}</p>
+						<span class="inline-flex items-center text-construction-accent font-heading uppercase tracking-wider text-sm">
+							Explore {d.label}
+							<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+							</svg>
+						</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Grid -->
+	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-16">
@@ -132,50 +78,36 @@ const services = [
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
 						Comprehensive Construction
 					</h2>
-					<p class="text-xl text-gray-700 mt-4 max-w-3xl">
-						From dream homes to targeted renovations, we handle every stage of the build with expert craftsmanship.
-					</p>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{services.map((service, index) => (
+			<div class="grid md:grid-cols-2 gap-8">
+				{serviceCategories.map((service, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<div id={service.id} class="bg-white border-t-4 border-construction-primary hover:shadow-xl transition-shadow flex flex-col h-full">
-							<div class="h-48 overflow-hidden">
-								<img
-									src={service.image}
-									alt={service.title}
-									class="w-full h-full object-cover"
-								/>
-							</div>
-							<div class="p-8 flex flex-col flex-1">
-								<h3 class="font-heading text-2xl font-bold text-construction-dark mb-2">
-									{service.title}
-								</h3>
-								<p class="text-construction-primary font-heading text-sm uppercase tracking-wide mb-4">
-									{service.tagline}
-								</p>
-								<p class="text-gray-700 mb-6 flex-1">
-									{service.description}
-								</p>
-								<ul class="space-y-2 mb-8">
-									{service.features.map(feature => (
-										<li class="flex items-center text-sm text-gray-700">
-											<svg class="w-4 h-4 text-construction-primary mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-												<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-											</svg>
-											{feature}
-										</li>
-									))}
-								</ul>
-								<a
-									href="/contact"
-									class="inline-flex items-center px-6 py-3 bg-construction-primary text-white font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all text-sm w-full justify-center"
-								>
-									Get a Quote
-								</a>
-							</div>
+						<div id={service.id} class="bg-construction-light border-t-4 border-construction-primary p-8 flex flex-col h-full">
+							<p class="font-heading text-xs uppercase tracking-widest text-construction-stone mb-2">{service.division}</p>
+							<h3 class="font-heading text-2xl font-bold text-construction-dark mb-2">
+								{service.title}
+							</h3>
+							<p class="text-construction-primary font-heading text-sm uppercase tracking-wide mb-5">
+								{service.tagline}
+							</p>
+							<ul class="space-y-2 mb-8 flex-1">
+								{service.items.map((feature) => (
+									<li class="flex items-start text-gray-700">
+										<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+											<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+										</svg>
+										{feature}
+									</li>
+								))}
+							</ul>
+							<a
+								href={`/${service.division}`}
+								class="inline-flex items-center px-6 py-3 bg-construction-primary text-white font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-lg transition-all text-sm w-full justify-center"
+							>
+								Learn More
+							</a>
 						</div>
 					</FadeInSection>
 				))}
@@ -183,33 +115,24 @@ const services = [
 		</div>
 	</section>
 
-	<!-- Our Process -->
-	<section class="py-20 bg-white">
+	<!-- How We Operate -->
+	<section class="py-20 bg-construction-light">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-16">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">How We Work</p>
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">How We Operate</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Our Process
+						The way we work
 					</h2>
-					<p class="text-xl text-gray-700 mt-4">
-						A transparent, step-by-step approach to every project
-					</p>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-4 gap-8">
-				{[
-					{ step: '01', title: 'Consultation', desc: 'Free initial meeting to understand your vision, budget, and timeline.' },
-					{ step: '02', title: 'Design & Quote', desc: 'Detailed plans and transparent pricing within 5 business days.' },
-					{ step: '03', title: 'Build', desc: 'Expert construction with regular updates and open communication.' },
-					{ step: '04', title: 'Handover', desc: 'Final walkthrough, warranty documentation, and post-project support.' },
-				].map((item, index) => (
+			<div class="grid md:grid-cols-3 gap-8">
+				{operatingHighlights.map((item, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-construction-light border-t-4 border-construction-primary p-8 hover:shadow-xl transition-shadow">
-							<div class="font-heading text-4xl font-bold text-construction-primary/20 mb-4">{item.step}</div>
+						<div class="bg-white p-8 border-l-4 border-construction-primary h-full shadow-md">
 							<h3 class="font-heading text-xl font-bold text-construction-dark mb-3">{item.title}</h3>
-							<p class="text-gray-700 text-sm">{item.desc}</p>
+							<p class="text-gray-700 leading-relaxed">{item.body}</p>
 						</div>
 					</FadeInSection>
 				))}
@@ -218,7 +141,7 @@ const services = [
 	</section>
 
 	<!-- FAQ Section -->
-	<section class="py-20 bg-construction-light">
+	<section class="py-20 bg-white">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="mb-12">
@@ -231,13 +154,13 @@ const services = [
 
 			<div class="space-y-4">
 				{[
-					{ q: "How much does a custom home cost?", a: "New home costs vary with size, site, materials, and finish level. In our area, most new homes run $220–$340 per square foot depending on finish level and site conditions. We provide detailed, itemized quotes after our consultation." },
-					{ q: "How long does a typical renovation take?", a: "Project timelines depend on scope. A kitchen or bath remodel may take 4–8 weeks; whole-home renovations can take 3–6 months. We provide a detailed timeline during the planning phase." },
-					{ q: "Do you handle the permits?", a: "Yes, we handle all necessary permits and inspections. We're familiar with local building codes and requirements across Yancey, Mitchell, Avery, and the surrounding counties we serve." },
-					{ q: "Can I customize everything?", a: "Absolutely. Every project we take on is custom. We work with you to select materials, finishes, fixtures, and design elements that reflect your style and budget. Completed work is backed by a 2-year workmanship warranty." },
+					{ q: "Do you handle both residential and commercial work?", a: "Yes. We're a full-service firm covering residential custom homes, renovations and additions, as well as commercial facilities, specialty structures, and subcontracted project work." },
+					{ q: "How is pricing determined?", a: "Project costs vary with size, site conditions, materials, and finish level. We provide detailed, itemized quotes after an initial consultation and site review." },
+					{ q: "Do you handle permits?", a: "Yes, we coordinate the necessary permits and inspections for the work we take on, and we're familiar with local building requirements across the areas we serve." },
+					{ q: "How do you manage the build?", a: "We work through an established subcontractor network with direct on-site supervision, so each job stays coordinated from site preparation through final finishings." },
 				].map((faq, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
-						<details class="bg-white p-6 group">
+						<details class="bg-construction-light p-6 group">
 							<summary class="font-heading font-bold text-construction-dark cursor-pointer list-none flex items-center justify-between uppercase tracking-wide">
 								{faq.q}
 								<svg class="w-5 h-5 text-construction-primary group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,20 +185,20 @@ const services = [
 					Let's Talk About Your Project
 				</h2>
 				<p class="text-xl text-white/60 mb-10">
-					Get a free consultation with our team.
+					Residential or commercial — tell us what you're planning.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<a
 						href="/contact"
 						class="px-8 py-4 bg-construction-primary text-white font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark hover:shadow-xl transition-all"
 					>
-						Get a Free Quote
+						Get a Quote
 					</a>
 					<a
-						href="tel:+18283352845"
+						href="/portfolio"
 						class="px-8 py-4 border-2 border-construction-accent text-construction-accent font-heading uppercase tracking-wider hover:bg-construction-accent hover:text-construction-dark transition-all"
 					>
-						Call Us Now
+						See Our Work
 					</a>
 				</div>
 			</FadeInSection>
