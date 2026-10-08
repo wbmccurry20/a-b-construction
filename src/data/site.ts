@@ -47,28 +47,12 @@ export const navLinks = [
   { name: 'Contact', href: '/contact' },
 ];
 
-// Temporary stock imagery. TODO(client): swap for real project photo folders.
+// Real project imagery provided by the client (optimized in public/images).
 export const placeholderImages = {
-  residentialHero:
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80',
-  commercialHero:
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80',
-  customHome:
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
-  renovation:
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
-  addition:
-    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80',
-  farmhouse:
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80',
-  commercialBuilding:
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80',
-  commercialInterior:
-    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80',
-  recreation:
-    'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?auto=format&fit=crop&w=1400&q=80',
-  crew:
-    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80',
+  residentialHero: '/images/heroes/residential.jpg',
+  commercialHero: '/images/heroes/commercial.jpg',
+  featureBand: '/images/heroes/banks-wide.jpg',
+  crew: '/images/projects/roof-renovation.jpg',
 };
 
 // What We Do — from ab_site_details.pdf.
@@ -241,44 +225,54 @@ export const portfolioCategories: ProjectCategory[] = [
 
 export const projects: Project[] = [
   {
-    id: 'phipps-creek',
-    title: 'Phipps Creek Road Custom Home',
-    location: 'Burnsville, NC',
+    id: 'austin-house',
+    title: 'Austin House',
+    location: 'Western North Carolina',
     division: 'residential',
     category: 'Custom Homes',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.customHome,
+    summary:
+      'A modern custom mountain home with dark board-and-batten siding, a timber-accented deck, and a two-car garage built into the hillside.',
+    image: '/images/projects/austin-house.jpg',
   },
   {
-    id: 'lickskillet',
-    title: 'Lickskillet Road Custom Home',
-    location: 'Burnsville, NC',
+    id: 'banks-house',
+    title: 'Banks House',
+    location: 'Western North Carolina',
     division: 'residential',
     category: 'Custom Homes',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.farmhouse,
+    summary:
+      'A craftsman-style custom home with a covered wraparound porch, timber brackets, and long Blue Ridge views.',
+    image: '/images/projects/banks-house.jpg',
   },
   {
-    id: 'serrell-garage',
-    title: '4-Car Garage & 2-Bedroom Build',
-    location: 'Avery County, NC',
+    id: 'the-cove',
+    title: 'The Cove at Celo — Lots 46 & 47',
+    location: 'Micaville, NC',
+    division: 'residential',
+    category: 'Custom Homes',
+    summary:
+      'Two custom homes built side by side in The Cove at Celo Mountain, carried from framing through finish.',
+    image: '/images/projects/the-cove.jpg',
+  },
+  {
+    id: 'deck-renovation',
+    title: 'Deck Renovation',
+    location: 'Western North Carolina',
     division: 'residential',
     category: 'Renovations & Additions',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.addition,
+    summary:
+      'A multi-level exterior deck and stair build that turns a sloped lot into usable outdoor living space.',
+    image: '/images/projects/deck-renovation.jpg',
   },
   {
-    id: 'barndominium',
-    title: 'Barndominium Build',
-    location: 'Burnsville, NC',
+    id: 'roof-renovation',
+    title: 'Roof Renovation',
+    location: 'Western North Carolina',
     division: 'residential',
-    category: 'Specialty Builds',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.renovation,
+    category: 'Renovations & Additions',
+    summary:
+      'A full roof replacement on a multi-gable home, handled by our crew from tear-off through new shingle installation.',
+    image: '/images/projects/roof-renovation.jpg',
   },
   {
     id: 'ray-cort-park',
@@ -286,29 +280,9 @@ export const projects: Project[] = [
     location: 'Burnsville, NC',
     division: 'commercial',
     category: 'Subcontracted Projects',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.recreation,
-  },
-  {
-    id: 'toe-river-gallery',
-    title: 'Toe River Art Gallery Facility Build',
-    location: 'Burnsville, NC',
-    division: 'commercial',
-    category: 'Commercial Construction',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.commercialInterior,
-  },
-  {
-    id: 'spay-neuter',
-    title: 'Spay & Neuter Facility Build',
-    location: 'Burnsville, NC',
-    division: 'commercial',
-    category: 'Commercial Construction',
-    summary: '',
-    summaryTodo: true,
-    image: placeholderImages.commercialBuilding,
+    summary:
+      'A commercial recreation park facility in Burnsville, delivered as a subcontracted project with on-site supervision.',
+    image: '/images/projects/ray-cort.jpg',
   },
 ];
 

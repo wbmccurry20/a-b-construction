@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import QuoteCalculator from '../components/QuoteCalculator';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import QuickContact from '../components/QuickContact';
 import Footer from '../components/Footer';
 import {
@@ -186,29 +185,30 @@ const operatingHighlights = operatingModel.filter((item) => item.body);
 		</div>
 	</section>
 
-	<!-- Before/After Showcase -->
-	<section class="py-20 bg-white">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="mb-8">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-primary mb-3">Transformations</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-construction-dark">
-						Before &amp; After
+	<!-- Featured build band -->
+	<section class="relative overflow-hidden bg-construction-dark">
+		<img
+			src={placeholderImages.featureBand}
+			alt="Custom craftsman home built by A&B Construction in the Blue Ridge mountains"
+			class="w-full h-[420px] md:h-[560px] object-cover"
+			loading="lazy"
+		/>
+		<div class="absolute inset-0 bg-gradient-to-t from-construction-dark via-construction-dark/30 to-transparent"></div>
+		<div class="absolute bottom-0 left-0 right-0">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+				<FadeInSection client:load>
+					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-2">Custom Homes</p>
+					<h2 class="font-heading text-4xl md:text-5xl font-bold text-white max-w-2xl">
+						Craftsmanship that fits the mountains.
 					</h2>
-					<p class="text-gray-700 mt-4 max-w-2xl">Drag to compare. A look at the kind of renovation work we take on.</p>
-				</div>
-			</FadeInSection>
-
-			<FadeInSection client:load delay={0.2}>
-				<BeforeAfterSlider
-					client:load
-					beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
-					afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
-					beforeAlt="Kitchen before renovation — representative example"
-					afterAlt="Kitchen after renovation — representative example"
-				/>
-				<p class="text-xs text-construction-stone mt-3 italic">Representative imagery — real project photos coming soon.</p>
-			</FadeInSection>
+					<a href="/portfolio" class="inline-flex items-center mt-5 text-white font-heading uppercase tracking-wider text-sm hover:text-construction-accent transition-colors">
+						See the work
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+						</svg>
+					</a>
+				</FadeInSection>
+			</div>
 		</div>
 	</section>
 

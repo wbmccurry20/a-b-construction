@@ -2,14 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import Footer from '../components/Footer';
-import { site, projects, portfolioCategories } from '../data/site';
+import { site, projects } from '../data/site';
 
 const pageTitle = "Portfolio | A&B Construction Projects in Western NC";
-const pageDescription = "Selected residential and commercial projects by A&B Construction across Western North Carolina — custom homes, renovations, commercial facilities, specialty builds, and subcontracted work.";
+const pageDescription = "Selected residential and commercial projects by A&B Construction across Western North Carolina — custom homes, renovations, commercial facilities, and subcontracted work.";
 
-const categories = ['All', ...portfolioCategories];
+const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -44,15 +43,6 @@ const categories = ['All', ...portfolioCategories];
 					</p>
 				</div>
 			</FadeInSection>
-		</div>
-	</section>
-
-	<!-- Preview note -->
-	<section class="bg-construction-accent/15 border-b border-construction-accent/30">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-			<p class="text-sm text-construction-dark text-center">
-				Project write-ups and photo galleries are being added. Imagery shown is representative while we prepare real project photos.
-			</p>
 		</div>
 	</section>
 
@@ -129,37 +119,6 @@ const categories = ['All', ...portfolioCategories];
 			});
 		});
 	</script>
-
-	<!-- Before/After Section -->
-	<section class="py-20 bg-construction-dark border-t border-white/10">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="mb-12">
-					<p class="font-heading text-sm uppercase tracking-widest text-construction-accent mb-3">Transformation Gallery</p>
-					<h2 class="font-heading text-5xl md:text-6xl font-bold text-white">
-						See the Difference
-					</h2>
-					<p class="text-xl text-white/60 mt-4">
-						Drag to compare — a look at the kind of renovation work we take on.
-					</p>
-				</div>
-			</FadeInSection>
-
-			<FadeInSection client:load delay={0.2}>
-				<div>
-					<p class="font-heading text-sm uppercase tracking-widest text-white/50 mb-4">Renovation — Before &amp; After</p>
-					<BeforeAfterSlider
-						client:load
-						beforeImage="https://images.unsplash.com/photo-1484154214963-1d0c076c6d0d?auto=format&fit=crop&w=1400&q=80"
-						afterImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
-						beforeAlt="Interior before renovation — representative example"
-						afterAlt="Interior after renovation — representative example"
-					/>
-					<p class="text-xs text-white/40 mt-3 italic">Representative imagery — real project photos coming soon.</p>
-				</div>
-			</FadeInSection>
-		</div>
-	</section>
 
 	<!-- Tagline Band -->
 	<section class="py-20 bg-construction-dark border-t border-white/10 text-center">

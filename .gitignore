@@ -37,7 +37,7 @@ coverage/
 *.tmp
 *.temp
 
-# Internal / sensitive source docs — DO NOT COMMIT (client PII, financials, working drafts)
-docs/*.csv
-docs/*.xlsx
-docs/ab_site_details.pdf
+# Internal / sensitive source docs — DO NOT COMMIT
+# (client PII/financials, working drafts, and large original photo folders).
+# Optimized web images live in public/images and ARE committed.
+docs/
